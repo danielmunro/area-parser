@@ -9,6 +9,7 @@ import CharacterValue from "../src/token/characterValue"
 
 const SECTION_1_NAME = "area"
 const SECTION_2_NAME = "mobiles"
+const SECTION_3_NAME = "objects"
 
 const document = new Document(
   readFileSync("./areas/midgaard.are").toString(), [
@@ -18,10 +19,10 @@ const document = new Document(
       new SingleContentToken("details"),
       new DiscreetValue("startRoomId"),
       new DiscreetValue("endRoomId"),
-    ]),
+    ], false),
     new Section(SECTION_2_NAME, new SectionHeader(), [
       new Identifier(),
-      new DiscreetValue("type"),
+      new SingleContentToken("type"),
       new SingleContentToken("name"),
       new SingleContentToken("brief"),
       new SingleContentToken("description"),
@@ -56,7 +57,10 @@ const document = new Document(
       new DiscreetValue("size"),
       new DiscreetValue("material"),
     ], true),
+    // new Section(SECTION_3_NAME, new SectionHeader(), [
+    // ], true),
   ])
 
-// console.log("result", JSON.stringify(document.readValues()))
-console.log("result", document.readValues())
+// document.readValues()
+console.log("result", JSON.stringify(document.readValues(), null, " "))
+// console.log("result", document.readValues())

@@ -4,6 +4,7 @@ import CharacterValue from "./token/characterValue"
 
 export default class Section {
   private position: number
+  private first = true
 
   constructor(
     public readonly name: string,
@@ -14,10 +15,13 @@ export default class Section {
   public getNodes(data: string, position: number): Node[] {
     this.position = position
     const nodes = []
-    nodes.push(this.parseToken(this.header, data))
+    if (this.first) {
+      nodes.push(this.parseToken(this.header, data))
+    }
     this.tokens.forEach(token => {
       nodes.push(...this.parseToken(token, data))
     })
+    this.first = false
     return nodes
   }
 

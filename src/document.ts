@@ -9,16 +9,24 @@ export default class Document {
   public readValues(): Node[] {
     const sections = []
     this.sections.forEach(section => {
-      let line = this.rawData.substring(this.position, this.rawData.indexOf("\n", this.position))
+      let line = this.getNextLine()
       let sanity = 0
-      while (section.isRepeatable && line !== "" && sanity < 1) {
-        const element = this.parseSection(section)
-        sections.push(element)
-        line = this.rawData.substring(this.position, this.rawData.indexOf("\n", this.position))
-        sanity++
+      if (section.isRepeatable) {
+        while (section.isRepeatable && sanity < 90 && line !== "#0") {
+          const element = this.parseSection(section)
+          sections.push(element)
+          line = this.getNextLine()
+          sanity++
+        }
+        return
       }
+      sections.push(this.parseSection(section))
     })
     return sections
+  }
+
+  private getNextLine() {
+    return this.rawData.substring(this.position, this.rawData.indexOf("\n", this.position))
   }
 
   private parseSection(section) {
