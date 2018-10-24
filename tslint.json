@@ -1,0 +1,14 @@
+{
+  "extends": [
+    "tslint:recommended",
+    "tslint-sonarts"
+  ],
+  "rules": {
+    "semicolon": [true, "never"],
+    "no-console": false,
+    "interface-name": [true, "never-prefix"],
+    "no-identical-functions": false,
+    "arrow-parens": [false, "ban-single-arg-parens"],
+    "no-unused-variable": [true]
+  }
+}
