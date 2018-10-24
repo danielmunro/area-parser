@@ -8,7 +8,7 @@ export default class CharacterValue implements Token {
   }
 
   public getEndDelimiters(): string[] {
-    return [""]
+    return ["\n", ""]
   }
 
   public isRepeatable(): boolean {

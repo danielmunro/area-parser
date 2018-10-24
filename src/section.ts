@@ -1,11 +1,8 @@
 import Token from "./token/token"
 import Node from "./node"
+import CharacterValue from "./token/characterValue"
 
 export default class Section {
-  private static isNextToken(token: Token, data: string, position: number): boolean {
-    return data.indexOf(token.getStartDelimiter(), position) === 0
-  }
-
   private position: number
 
   constructor(
@@ -30,6 +27,9 @@ export default class Section {
 
   private parseToken(token: Token, data: string): Node[] {
     const nodes = []
+    while (data[this.position] === " " || data[this.position] === "\n") {
+      this.position++
+    }
     const endDelimiter = this.getEndDelimiter(token, data)
     const endPos = data.indexOf(endDelimiter, this.position)
     const end = endPos === this.position ? endPos + 1 : endPos
@@ -40,9 +40,7 @@ export default class Section {
       end).trim()
     nodes.push(new Node(token, value))
     this.position = end + endDelimiter.length
-
-    console.log(token.isRepeatable(), Section.isNextToken(token, data, this.position))
-    if (token.isRepeatable() && Section.isNextToken(token, data, this.position)) {
+    if (token.isRepeatable() && this.isNextToken(token, data)) {
       nodes.push(...this.parseToken(token, data))
     }
 
@@ -54,5 +52,19 @@ export default class Section {
       .getEndDelimiters()
       .sort((a, b) => data.indexOf(a, this.position) - data.indexOf(b, this.position))
     return endpos[0]
+  }
+
+  private getEndRepeatDelimiter(token: Token, data: string) {
+    const endpos = token
+      .getEndRepeatDelimiters()
+      .sort((a, b) => data.indexOf(a, this.position) - data.indexOf(b, this.position))
+    return endpos[0]
+  }
+
+  private isNextToken(token: Token, data: string): boolean {
+    if (token instanceof CharacterValue) {
+      return data.indexOf(this.getEndRepeatDelimiter(token, data), this.position) - this.position > 0
+    }
+    return data.indexOf(token.getStartDelimiter(), this.position) === this.position
   }
 }
