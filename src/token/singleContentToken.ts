@@ -1,6 +1,8 @@
 import Token from "./token"
 
-export default class NonrepeatableContentToken implements Token {
+export default class SingleContentToken implements Token {
+  constructor(public readonly identifier: string = null) {}
+
   public getStartDelimiter(): string {
     return ""
   }
@@ -11,5 +13,9 @@ export default class NonrepeatableContentToken implements Token {
 
   public isRepeatable(): boolean {
     return false
+  }
+
+  public getEndRepeatDelimiters(): string[] {
+    return []
   }
 }

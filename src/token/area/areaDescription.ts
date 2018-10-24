@@ -1,3 +1,3 @@
-import NonrepeatableContentToken from "../nonrepeatableContentToken"
+import SingleContentToken from "../singleContentToken"
 
-export default class AreaDescription extends NonrepeatableContentToken {}
+export default class AreaDescription extends SingleContentToken {}

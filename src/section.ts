@@ -10,12 +10,14 @@ export default class Section {
 
   constructor(
     public readonly name: string,
+    public readonly header: Token,
     public readonly tokens: Token[],
     public readonly isRepeatable: boolean = true) {}
 
   public getNodes(data: string, position: number): Node[] {
     this.position = position
     const nodes = []
+    nodes.push(this.parseToken(this.header, data))
     this.tokens.forEach(token => {
       nodes.push(...this.parseToken(token, data))
     })
@@ -29,12 +31,17 @@ export default class Section {
   private parseToken(token: Token, data: string): Node[] {
     const nodes = []
     const endDelimiter = this.getEndDelimiter(token, data)
-    const end = data.indexOf(endDelimiter, this.position)
+    const endPos = data.indexOf(endDelimiter, this.position)
+    const end = endPos === this.position ? endPos + 1 : endPos
     const value = data.substring(
-      data.indexOf(token.getStartDelimiter(), this.position) + token.getStartDelimiter().length, end)
+      data.indexOf(
+        token.getStartDelimiter(),
+        this.position) + token.getStartDelimiter().length,
+      end).trim()
     nodes.push(new Node(token, value))
     this.position = end + endDelimiter.length
 
+    console.log(token.isRepeatable(), Section.isNextToken(token, data, this.position))
     if (token.isRepeatable() && Section.isNextToken(token, data, this.position)) {
       nodes.push(...this.parseToken(token, data))
     }

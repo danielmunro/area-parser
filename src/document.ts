@@ -7,11 +7,11 @@ export default class Document {
   constructor(public readonly rawData: string, public readonly sections: Section[]) {}
 
   public readValues(): Node[] {
-    const nodes = []
+    const sections = []
     this.sections.forEach(section => {
-      nodes.push(...section.getNodes(this.rawData, this.position))
+      sections.push(section.getNodes(this.rawData, this.position))
       this.position = section.getPosition()
     })
-    return nodes
+    return sections
   }
 }

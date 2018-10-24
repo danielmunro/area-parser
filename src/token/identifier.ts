@@ -1,14 +1,14 @@
 import Token from "./token"
 
-export default class DiscreetValue implements Token {
+export default class Identifier implements Token {
   constructor(public readonly identifier: string = null) {}
 
   public getStartDelimiter(): string {
-    return ""
+    return "#"
   }
 
   public getEndDelimiters(): string[] {
-    return [" ", "\n\n", "~\n"]
+    return ["\n"]
   }
 
   public isRepeatable(): boolean {
