@@ -1,12 +1,12 @@
-import Token from "../token"
+import Token from "./token"
 
-export default class AreaTitle implements Token {
+export default class DiscreetValue implements Token {
   public getStartDelimiter(): string {
-    return "#"
+    return ""
   }
 
   public getEndDelimiters(): string[] {
-    return ["\n"]
+    return [" ", "\n\n"]
   }
 
   public isRepeatable(): boolean {

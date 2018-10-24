@@ -3,6 +3,6 @@ export default interface Token {
   // getValue(): any
   // getChildren(): Token[]
   getStartDelimiter(): string
-  getEndDelimiter(): string
+  getEndDelimiters(): string[]
   isRepeatable(): boolean
 }

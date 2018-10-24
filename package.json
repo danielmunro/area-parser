@@ -1,17 +1,10 @@
 {
-  "name": "nodesrv",
+  "name": "area-parser",
   "version": "0.0.1",
-  "description": "A minimal server",
-  "main": "bin/start-game-server.js",
+  "description": "Tokenize unstructured text",
+  "main": "bin/demo.ts",
   "scripts": {
-    "start": "ts-node --no-cache bin/start-game-server.ts",
-    "create-fixtures": "ts-node --no-cache bin/create-fixtures.ts .",
-    "clean": "rm -rf ./coverage",
-    "lint": "yarn clean && tslint --project .",
-    "test": "ENV=test jest --forceExit --detectOpenHandles",
-    "reset-test-db": "ts-node bin/reset-test-db.ts",
-    "test-coverage": "ENV=test jest --coverage --forceExit --detectOpenHandles",
-    "complexity": "ts-complexity --max-complexity 14 src/**/*"
+    "demo": "ts-node --no-cache bin/demo.ts"
   },
   "repository": "https://github.com/danielmunro/nodesrv",
   "keywords": [],

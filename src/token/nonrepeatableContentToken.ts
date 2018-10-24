@@ -5,8 +5,8 @@ export default class NonrepeatableContentToken implements Token {
     return ""
   }
 
-  public getEndDelimiter(): string {
-    return "~\n"
+  public getEndDelimiters(): string[] {
+    return ["~\n"]
   }
 
   public isRepeatable(): boolean {
