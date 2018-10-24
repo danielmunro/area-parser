@@ -57,8 +57,13 @@ const document = new Document(
       new DiscreetValue("size"),
       new DiscreetValue("material"),
     ], true),
-    // new Section(SECTION_3_NAME, new SectionHeader(), [
-    // ], true),
+    new Section(SECTION_3_NAME, new SectionHeader(), [
+      new Identifier(),
+      new SingleContentToken("name"),
+      new SingleContentToken("brief"),
+      new SingleContentToken("description"),
+      new SingleContentToken("material"),
+    ], false),
   ])
 
 // document.readValues()

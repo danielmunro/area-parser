@@ -3,6 +3,7 @@ import Node from "./node"
 import CharacterValue from "./token/characterValue"
 
 export default class Section {
+  private static readonly endCursor = [" ", "\n"]
   private position: number
   private first = true
 
@@ -31,7 +32,7 @@ export default class Section {
 
   private parseToken(token: Token, data: string): Node[] {
     const nodes = []
-    while (data[this.position] === " " || data[this.position] === "\n") {
+    while (Section.endCursor.indexOf(data[this.position]) > -1) {
       this.position++
     }
     const endDelimiter = this.getEndDelimiter(token, data)
