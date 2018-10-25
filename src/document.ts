@@ -12,12 +12,13 @@ export default class Document {
       let line = this.getNextLine()
       let sanity = 0
       if (section.isRepeatable) {
-        while (section.isRepeatable && sanity < 90 && line !== "#0") {
+        while (section.isRepeatable && sanity < 1000 && line !== "#0") {
           const element = this.parseSection(section)
           sections.push(element)
           line = this.getNextLine()
           sanity++
         }
+        this.position += 2
         return
       }
       sections.push(this.parseSection(section))

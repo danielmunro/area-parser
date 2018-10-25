@@ -36,12 +36,11 @@ export default class Section {
       this.position++
     }
     const endDelimiter = this.getEndDelimiter(token, data)
+    const startDelimiter = token.getStartDelimiter()
     const endPos = data.indexOf(endDelimiter, this.position)
     const end = endPos === this.position ? endPos + 1 : endPos
     const value = data.substring(
-      data.indexOf(
-        token.getStartDelimiter(),
-        this.position) + token.getStartDelimiter().length,
+      data.indexOf(startDelimiter, this.position) + startDelimiter.length,
       end).trim()
     nodes.push(new Node(token, value))
     this.position = end + endDelimiter.length

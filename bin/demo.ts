@@ -6,10 +6,12 @@ import SingleContentToken from "../src/token/singleContentToken"
 import DiscreetValue from "../src/token/discreetValue"
 import Identifier from "../src/token/identifier"
 import CharacterValue from "../src/token/characterValue"
+import LineToken from "../src/token/lineToken"
 
 const SECTION_1_NAME = "area"
 const SECTION_2_NAME = "mobiles"
 const SECTION_3_NAME = "objects"
+const SECTION_4_NAME = "rooms"
 
 const document = new Document(
   readFileSync("./areas/midgaard.are").toString(), [
@@ -63,7 +65,18 @@ const document = new Document(
       new SingleContentToken("brief"),
       new SingleContentToken("description"),
       new SingleContentToken("material"),
-    ], false),
+      new DiscreetValue("type"),
+      new DiscreetValue("extraFlag"),
+      new DiscreetValue("wearFlag"),
+      new LineToken("pObjFlags"),
+      new DiscreetValue("level"),
+      new DiscreetValue("weight"),
+      new DiscreetValue("cost"),
+      new DiscreetValue("condition"),
+    ], true),
+    new Section(SECTION_4_NAME, new SectionHeader(), [
+
+    ], true),
   ])
 
 // document.readValues()
