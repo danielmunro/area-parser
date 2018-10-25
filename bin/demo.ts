@@ -75,8 +75,13 @@ const document = new Document(
       new DiscreetValue("condition"),
     ], true),
     new Section(SECTION_4_NAME, new SectionHeader(), [
-
-    ], true),
+      new Identifier(),
+      new SingleContentToken("title"),
+      new SingleContentToken("description"),
+      new DiscreetValue("areaNumber"),
+      new CharacterValue("roomFlags"),
+      new DiscreetValue("sectorType"),
+    ], false),
   ])
 
 // document.readValues()
