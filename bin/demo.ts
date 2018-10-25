@@ -7,6 +7,7 @@ import DiscreetValue from "../src/token/discreetValue"
 import Identifier from "../src/token/identifier"
 import CharacterValue from "../src/token/characterValue"
 import LineToken from "../src/token/lineToken"
+import SubsectionToken from "../src/token/subsectionToken"
 
 const SECTION_1_NAME = "area"
 const SECTION_2_NAME = "mobiles"
@@ -81,6 +82,19 @@ const document = new Document(
       new DiscreetValue("areaNumber"),
       new CharacterValue("roomFlags"),
       new DiscreetValue("sectorType"),
+      new SubsectionToken("doors", [
+        new DiscreetValue("door"),
+        new SingleContentToken("throwaway"),
+        new SingleContentToken("keyword"),
+        new DiscreetValue("locks"),
+        new DiscreetValue("key"),
+        new DiscreetValue("vnum"),
+      ]).identifiedBy("D"),
+      new SubsectionToken("extra", [
+        new DiscreetValue("extra"),
+        new SingleContentToken("title"),
+        new SingleContentToken("description"),
+      ]).identifiedBy("E"),
     ], false),
   ])
 

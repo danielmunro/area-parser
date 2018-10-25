@@ -1,6 +1,7 @@
 import Token from "./token/token"
 import Node from "./node"
 import CharacterValue from "./token/characterValue"
+import SubsectionToken from "./token/subsectionToken"
 
 export default class Section {
   private static readonly endCursor = [" ", "\n"]
@@ -20,7 +21,12 @@ export default class Section {
       nodes.push(this.parseToken(this.header, data))
     }
     this.tokens.forEach(token => {
-      nodes.push(...this.parseToken(token, data))
+      if (token instanceof SubsectionToken) {
+        nodes.push(...this.parseSubsection(token, data))
+        return
+      }
+      const createdNodes = this.parseToken(token, data)
+      nodes.push(...createdNodes)
     })
     this.first = false
     return nodes
@@ -28,6 +34,20 @@ export default class Section {
 
   public getPosition(): number {
     return this.position
+  }
+
+  private parseSubsection(token, data) {
+    const nodes = []
+    while (this.getNextLine(data).indexOf(token.getStartDelimiter()) === 0) {
+      token.tokens.forEach(subsectionToken => {
+        nodes.push(...this.parseToken(subsectionToken, data))
+      })
+    }
+    return nodes
+  }
+
+  private getNextLine(data: string) {
+    return data.substring(this.position, data.indexOf("\n", this.position))
   }
 
   private parseToken(token: Token, data: string): Node[] {
