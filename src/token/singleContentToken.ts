@@ -8,7 +8,7 @@ export default class SingleContentToken implements Token {
   }
 
   public getEndDelimiters(): string[] {
-    return ["~\n"]
+    return ["~"]
   }
 
   public isRepeatable(): boolean {

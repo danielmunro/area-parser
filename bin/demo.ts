@@ -59,6 +59,10 @@ const document = new Document(
       new CharacterValue("parts"),
       new DiscreetValue("size"),
       new DiscreetValue("material"),
+      new SubsectionToken("flags", [
+        new DiscreetValue("name"),
+        new DiscreetValue("flag"),
+      ]).identifiedBy("F"),
     ], true),
     new Section(SECTION_3_NAME, new SectionHeader(), [
       new Identifier(),
@@ -95,7 +99,19 @@ const document = new Document(
         new SingleContentToken("title"),
         new SingleContentToken("description"),
       ]).identifiedBy("E"),
-    ], false),
+      new SubsectionToken("healing", [
+        new DiscreetValue("healingRate"),
+      ]).identifiedBy("H"),
+      new SubsectionToken("observation", [
+        new DiscreetValue("target"),
+      ]).identifiedBy("B"),
+      new SubsectionToken("mana", [
+        new DiscreetValue("manaRate"),
+      ]).identifiedBy("M"),
+      new SubsectionToken("clan", [
+        new DiscreetValue("clan"),
+      ]).identifiedBy("C"),
+    ], true),
   ])
 
 // document.readValues()

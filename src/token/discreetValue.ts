@@ -8,7 +8,7 @@ export default class DiscreetValue implements Token {
   }
 
   public getEndDelimiters(): string[] {
-    return [" ", "\n\n", "~\n", "\n"]
+    return [" ", "\n"]
   }
 
   public isRepeatable(): boolean {

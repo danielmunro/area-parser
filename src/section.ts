@@ -15,6 +15,7 @@ export default class Section {
     public readonly isRepeatable: boolean = true) {}
 
   public getNodes(data: string, position: number): Node[] {
+    console.log(`start of getNodes(), position: ${position}`)
     this.position = position
     const nodes = []
     if (this.first) {
@@ -22,9 +23,11 @@ export default class Section {
     }
     this.tokens.forEach(token => {
       if (token instanceof SubsectionToken) {
+        console.log("subsection")
         nodes.push(...this.parseSubsection(token, data))
         return
       }
+      console.log("token")
       const createdNodes = this.parseToken(token, data)
       nodes.push(...createdNodes)
     })
@@ -43,6 +46,9 @@ export default class Section {
         nodes.push(...this.parseToken(subsectionToken, data))
       })
     }
+    if (this.getNextLine(data) === "S") {
+      this.position++
+    }
     return nodes
   }
 
@@ -57,13 +63,20 @@ export default class Section {
     }
     const endDelimiter = this.getEndDelimiter(token, data)
     const startDelimiter = token.getStartDelimiter()
-    const endPos = data.indexOf(endDelimiter, this.position)
-    const end = endPos === this.position ? endPos + 1 : endPos
+    let end = data.indexOf(endDelimiter, this.position)
+    if (end === -1) {
+      console.error("could not find end delimiter", data.substring(this.position), `"${endDelimiter}"`)
+      return []
+    }
+    if (end === this.position) {
+      end = end + 1 - Math.min(endDelimiter.length, 1)
+    }
+    const newPos = end + endDelimiter.length
     const value = data.substring(
       data.indexOf(startDelimiter, this.position) + startDelimiter.length,
       end).trim()
     nodes.push(new Node(token, value))
-    this.position = end + endDelimiter.length
+    this.position = newPos
     if (token.isRepeatable() && this.isNextToken(token, data)) {
       nodes.push(...this.parseToken(token, data))
     }
@@ -74,15 +87,29 @@ export default class Section {
   private getEndDelimiter(token: Token, data: string) {
     const endpos = token
       .getEndDelimiters()
-      .sort((a, b) => data.indexOf(a, this.position) - data.indexOf(b, this.position))
+      .sort((a, b) => this.compare(data, a, b))
     return endpos[0]
   }
 
   private getEndRepeatDelimiter(token: Token, data: string) {
     const endpos = token
       .getEndRepeatDelimiters()
-      .sort((a, b) => data.indexOf(a, this.position) - data.indexOf(b, this.position))
+      .sort((a, b) => this.compare(data, a, b))
     return endpos[0]
+  }
+
+  private compare(data, a: string, b: string) {
+    const posA = data.indexOf(a, this.position)
+    const posB = data.indexOf(b, this.position)
+
+    if (posA === -1) {
+      return 1
+    }
+    if (posB === -1) {
+      return -1
+    }
+
+    return posA - posB
   }
 
   private isNextToken(token: Token, data: string): boolean {
