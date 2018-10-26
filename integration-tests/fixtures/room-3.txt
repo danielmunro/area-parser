@@ -1,0 +1,20 @@
+#ROOMS
+#3254
+The South Bridge~
+You are standing on a small, rickety bridge leading from the Midgaard
+City Dump to the much more attractive promenade of the southern parts of
+Midgaard.  You can smell the stench of the dump to the north, the fresher
+air of the promenade seems preferable.  Below you are the swift-moving
+currents of the Midgaard river.
+~
+0 S 1
+D0
+Exit ~
+~
+16384 0 3030
+D2
+Exit ~
+~
+16384 -1 3102
+S
+#0

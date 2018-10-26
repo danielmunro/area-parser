@@ -1,0 +1,10 @@
+#OBJECTS
+#3055
+scroll vellum~
+a scroll of fine vellum~
+A scroll of fine vellum is here.~
+vellum~
+scroll AN AO
+0 '' '' '' ''
+1 1 2500 P
+#0
