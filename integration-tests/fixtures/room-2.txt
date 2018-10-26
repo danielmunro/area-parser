@@ -1,0 +1,41 @@
+#ROOMS
+#3357
+The Bar~
+A long mahogany bar is set in the back of the pub.  Mugs line a shelf
+behind the bar.  Bottles of strong, nasty looking liquids decorate one
+of the lower shelves.  A large cask rests on a table behind the bar.  A
+strong but friendly-looking bartender stands next to the cask polishing
+glasses.  A couple of the bar maids stand in a corner and throw the most
+inviting glances your way.
+A sign is on the wall.
+~
+0 DS 0
+D0
+Exit ~
+~
+16384 -1 3355
+E
+sign~
+The sign says: Don't forget our dinner menu.
+~
+S
+#3358
+The Bar~
+A long mahogany bar is set in the back of the pub.  Mugs line a shelf
+behind the bar.  Bottles of strong, nasty looking liquids decorate one
+of the lower shelves.  A large cask rests on a table behind the bar.  A
+strong but friendly looking bartender stands next to the cask polishing
+glasses.  A couple of the bar maids stand in a corner and throw the most
+inviting glances your way.
+~
+0 DS 0
+D0
+Exit ~
+~
+16384 -1 3356
+E
+sign~
+The sign says: Don't forget our dinner menu.
+~
+S
+#0

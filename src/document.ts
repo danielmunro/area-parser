@@ -3,7 +3,7 @@ import Section from "./section"
 
 export default class Document {
   private position: number = 0
-  private documentLength: number
+  private readonly documentLength: number
 
   constructor(public readonly rawData: string, public readonly sections: Section[]) {
     this.documentLength = this.rawData.length
@@ -23,18 +23,15 @@ export default class Document {
   }
 
   private repeatableSection(section: Section): Node[] {
-    let sanity = 0
     const sections = []
-    console.log(`section: ${section.name}, document length: ${this.documentLength}`)
-    while (section.isRepeatable && this.position < this.documentLength) {
+    while (this.position < this.documentLength) {
+      if (this.rawData.substring(this.position, this.position + 2) === "#0") {
+        return sections
+      }
       const element = this.parseSection(section)
       sections.push(...element)
       this.position += section.getPosition()
-      sanity++
-      console.log(`while loop position: ${this.position} (doc length: ${this.documentLength})`, element, sections)
-      return sections
     }
-    console.log(`position: ${this.position}`)
     return sections
   }
 

@@ -15,10 +15,9 @@ const SECTION_3_NAME = "objects"
 const SECTION_4_NAME = "rooms"
 
 describe("rooms", () => {
-  it("should load a single room", () => {
+  it("should load room one", () => {
     const document = getRoom1Document()
     const nodes = document.readValues()
-    console.log(nodes)
     expect(nodes[0][0].parsedValue).toBe("ROOMS")
     expect(nodes[1].parsedValue).toBe("3359")
     expect(nodes[2].parsedValue).toBe("The Inn")
@@ -40,6 +39,55 @@ probably waiting for you to ask him for a room.`)
     expect(nodes[12].parsedValue).toBe("-1")
     expect(nodes[13].parsedValue).toBe("3356")
   })
+
+  it("should load room two fixtures", () => {
+    const document = getRoom2Document()
+    const nodes = document.readValues()
+    expect(nodes[0][0].parsedValue).toBe("ROOMS")
+    expect(nodes[1].parsedValue).toBe("3357")
+    expect(nodes[2].parsedValue).toBe("The Bar")
+    expect(nodes[3].parsedValue).toBe(`A long mahogany bar is set in the back of the pub.  Mugs line a shelf
+behind the bar.  Bottles of strong, nasty looking liquids decorate one
+of the lower shelves.  A large cask rests on a table behind the bar.  A
+strong but friendly-looking bartender stands next to the cask polishing
+glasses.  A couple of the bar maids stand in a corner and throw the most
+inviting glances your way.
+A sign is on the wall.`)
+    expect(nodes[4].parsedValue).toBe("0")
+    expect(nodes[5].parsedValue).toBe("D")
+    expect(nodes[6].parsedValue).toBe("S")
+    expect(nodes[7].parsedValue).toBe("0")
+    expect(nodes[8].parsedValue).toBe("D0")
+    expect(nodes[9].parsedValue).toBe("Exit")
+    expect(nodes[10].parsedValue).toBe("")
+    expect(nodes[11].parsedValue).toBe("16384")
+    expect(nodes[12].parsedValue).toBe("-1")
+    expect(nodes[13].parsedValue).toBe("3355")
+    expect(nodes[14].parsedValue).toBe("E")
+    expect(nodes[15].parsedValue).toBe("sign")
+    expect(nodes[16].parsedValue).toBe("The sign says: Don't forget our dinner menu.")
+    expect(nodes[17].parsedValue).toBe("3358")
+    expect(nodes[18].parsedValue).toBe("The Bar")
+    expect(nodes[19].parsedValue).toBe(`A long mahogany bar is set in the back of the pub.  Mugs line a shelf
+behind the bar.  Bottles of strong, nasty looking liquids decorate one
+of the lower shelves.  A large cask rests on a table behind the bar.  A
+strong but friendly looking bartender stands next to the cask polishing
+glasses.  A couple of the bar maids stand in a corner and throw the most
+inviting glances your way.`)
+    expect(nodes[20].parsedValue).toBe("0")
+    expect(nodes[21].parsedValue).toBe("D")
+    expect(nodes[22].parsedValue).toBe("S")
+    expect(nodes[23].parsedValue).toBe("0")
+    expect(nodes[24].parsedValue).toBe("D0")
+    expect(nodes[25].parsedValue).toBe("Exit")
+    expect(nodes[26].parsedValue).toBe("")
+    expect(nodes[27].parsedValue).toBe("16384")
+    expect(nodes[28].parsedValue).toBe("-1")
+    expect(nodes[29].parsedValue).toBe("3356")
+    expect(nodes[30].parsedValue).toBe("E")
+    expect(nodes[31].parsedValue).toBe("sign")
+    expect(nodes[32].parsedValue).toBe("The sign says: Don't forget our dinner menu.")
+  })
 })
 
 // describe("mobiles", () => {
@@ -57,47 +105,15 @@ probably waiting for you to ask him for a room.`)
 //   })
 // })
 
+function getRoom2Document() {
+  return new Document(readFileSync("./integration-tests/fixtures/room-2.txt").toString(), [
+    getRoomDefinition()])
+}
+
+
 function getRoom1Document() {
   return new Document(readFileSync("./integration-tests/fixtures/room-1.txt").toString(), [
-    new Section(SECTION_4_NAME, new SectionHeader(), [
-      new Identifier(),
-      new SingleContentToken("title"),
-      new SingleContentToken("description"),
-      new DiscreetValue("areaNumber"),
-      new CharacterValue("roomFlags"),
-      new DiscreetValue("sectorType"),
-      new SubsectionToken("healing", [
-        new DiscreetValue("healingFlag"),
-        new DiscreetValue("healingRate"),
-      ]).identifiedBy("H"),
-      new SubsectionToken("mana", [
-        new DiscreetValue("manaFlag"),
-        new DiscreetValue("manaRate"),
-      ]).identifiedBy("M"),
-      new SubsectionToken("other", [
-        new DiscreetValue("otherFlag"),
-        new DiscreetValue("value"),
-      ]).identifiedBy("O"),
-      new SubsectionToken("doors", [
-        new DiscreetValue("door"),
-        new SingleContentToken("type"),
-        new SingleContentToken("keyword"),
-        new DiscreetValue("locks"),
-        new DiscreetValue("key"),
-        new DiscreetValue("vnum"),
-      ]).identifiedBy("D"),
-      new SubsectionToken("extra", [
-        new DiscreetValue("extra"),
-        new SingleContentToken("title"),
-        new SingleContentToken("description"),
-      ]).identifiedBy("E"),
-      new SubsectionToken("observation", [
-        new DiscreetValue("target"),
-      ]).identifiedBy("B"),
-      new SubsectionToken("clan", [
-        new DiscreetValue("clan"),
-      ]).identifiedBy("C"),
-    ], true)])
+    getRoomDefinition()])
 }
 
 function getDocument() {
@@ -183,43 +199,47 @@ function getDocument() {
         new DiscreetValue("bitVector"),
       ]).identifiedBy("F"),
     ], true),
-    new Section(SECTION_4_NAME, new SectionHeader(), [
-      new Identifier(),
+    getRoomDefinition()])
+}
+
+function getRoomDefinition() {
+  return new Section(SECTION_4_NAME, new SectionHeader(), [
+    new Identifier(),
+    new SingleContentToken("title"),
+    new SingleContentToken("description"),
+    new DiscreetValue("areaNumber"),
+    new CharacterValue("roomFlags"),
+    new DiscreetValue("sectorType"),
+    new SubsectionToken("healing", [
+      new DiscreetValue("healingFlag"),
+      new DiscreetValue("healingRate"),
+    ]).identifiedBy("H"),
+    new SubsectionToken("mana", [
+      new DiscreetValue("manaFlag"),
+      new DiscreetValue("manaRate"),
+    ]).identifiedBy("M"),
+    new SubsectionToken("other", [
+      new DiscreetValue("otherFlag"),
+      new DiscreetValue("value"),
+    ]).identifiedBy("O"),
+    new SubsectionToken("doors", [
+      new DiscreetValue("door"),
+      new SingleContentToken("type"),
+      new SingleContentToken("keyword"),
+      new DiscreetValue("locks"),
+      new DiscreetValue("key"),
+      new DiscreetValue("vnum"),
+    ]).identifiedBy("D"),
+    new SubsectionToken("extra", [
+      new DiscreetValue("extra"),
       new SingleContentToken("title"),
       new SingleContentToken("description"),
-      new DiscreetValue("areaNumber"),
-      new CharacterValue("roomFlags"),
-      new DiscreetValue("sectorType"),
-      new SubsectionToken("healing", [
-        new DiscreetValue("healingFlag"),
-        new DiscreetValue("healingRate"),
-      ]).identifiedBy("H"),
-      new SubsectionToken("mana", [
-        new DiscreetValue("manaFlag"),
-        new DiscreetValue("manaRate"),
-      ]).identifiedBy("M"),
-      new SubsectionToken("other", [
-        new DiscreetValue("otherFlag"),
-        new DiscreetValue("value"),
-      ]).identifiedBy("O"),
-      new SubsectionToken("doors", [
-        new DiscreetValue("door"),
-        new SingleContentToken("type"),
-        new SingleContentToken("keyword"),
-        new DiscreetValue("locks"),
-        new DiscreetValue("key"),
-        new DiscreetValue("vnum"),
-      ]).identifiedBy("D"),
-      new SubsectionToken("extra", [
-        new DiscreetValue("extra"),
-        new SingleContentToken("title"),
-        new SingleContentToken("description"),
-      ]).identifiedBy("E"),
-      new SubsectionToken("observation", [
-        new DiscreetValue("target"),
-      ]).identifiedBy("B"),
-      new SubsectionToken("clan", [
-        new DiscreetValue("clan"),
-      ]).identifiedBy("C"),
-    ], true)])
+    ]).identifiedBy("E"),
+    new SubsectionToken("observation", [
+      new DiscreetValue("target"),
+    ]).identifiedBy("B"),
+    new SubsectionToken("clan", [
+      new DiscreetValue("clan"),
+    ]).identifiedBy("C"),
+  ], true)
 }

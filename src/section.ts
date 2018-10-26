@@ -15,7 +15,6 @@ export default class Section {
     public readonly isRepeatable: boolean = true) {}
 
   public getNodes(data: string, position: number): Node[] {
-    console.log(`start of getNodes(), position: ${position}`)
     this.position = position
     const nodes = []
     if (this.first) {
@@ -23,15 +22,14 @@ export default class Section {
     }
     this.tokens.forEach(token => {
       if (token instanceof SubsectionToken) {
-        console.log("subsection")
         nodes.push(...this.parseSubsection(token, data))
         return
       }
-      console.log("token")
       const createdNodes = this.parseToken(token, data)
       nodes.push(...createdNodes)
     })
     this.first = false
+    this.position += 2
     return nodes
   }
 
@@ -45,9 +43,6 @@ export default class Section {
       token.tokens.forEach(subsectionToken => {
         nodes.push(...this.parseToken(subsectionToken, data))
       })
-    }
-    if (this.getNextLine(data) === "S") {
-      this.position++
     }
     return nodes
   }
@@ -65,7 +60,7 @@ export default class Section {
     const startDelimiter = token.getStartDelimiter()
     let end = data.indexOf(endDelimiter, this.position)
     if (end === -1) {
-      console.error("could not find end delimiter", data.substring(this.position), `"${endDelimiter}"`)
+      console.error(`missing end "${endDelimiter}", ${token.constructor.name} in section ${this.name}`)
       return []
     }
     if (end === this.position) {
