@@ -40,7 +40,7 @@ export default class Section {
 
   private parseSubsection(token, data) {
     const nodes = []
-    while (this.getNextLine(data).indexOf(token.getStartDelimiter()) === 0) {
+    while (this.getNextPart(data).indexOf(token.getStartDelimiter()) === 0) {
       token.tokens.forEach(subsectionToken => {
         nodes.push(...this.parseToken(subsectionToken, data))
       })
@@ -48,8 +48,12 @@ export default class Section {
     return nodes
   }
 
-  private getNextLine(data: string) {
+  private getNextPart(data: string) {
     return data.substring(this.position, data.indexOf("\n", this.position))
+  }
+
+  private throwTokenizeEndDelimiterError(token: Token, endDelimiter: string) {
+    throw new Error(`missing end "${endDelimiter}", ${token.constructor.name} in section ${this.name}`)
   }
 
   private parseToken(token: Token, data: string): Node[] {
@@ -58,15 +62,15 @@ export default class Section {
       this.position++
     }
     const endDelimiter = this.getEndDelimiter(token, data)
-    const startDelimiter = token.getStartDelimiter()
     let end = data.indexOf(endDelimiter, this.position)
     if (end === -1) {
-      throw new Error(`missing end "${endDelimiter}", ${token.constructor.name} in section ${this.name}`)
+      this.throwTokenizeEndDelimiterError(token, endDelimiter)
     }
     if (end === this.position) {
       end = end + 1 - Math.min(endDelimiter.length, 1)
     }
     const newPos = end + endDelimiter.length
+    const startDelimiter = token.getStartDelimiter()
     const value = data.substring(
       data.indexOf(startDelimiter, this.position) + startDelimiter.length,
       end).trim()

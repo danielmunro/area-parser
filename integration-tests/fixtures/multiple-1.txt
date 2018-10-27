@@ -1,0 +1,45 @@
+#AREA
+/mud/moosehead/area/midgaard.are~
+Midgaard~
+{ All } Diku    Midgaard~
+3000 3378
+
+#MOBILES
+#3000
+wizard~
+the wizard~
+A wizard walks around behind the counter, talking to himself.
+~
+The wizard looks old and senile, and yet he looks like a very powerful
+wizard. He is equipped with fine clothing, and is wearing many fine
+rings and bracelets.
+~
+human~
+(null)~
+(null)~
+(null)~
+ABV D 900 0
+23 0 1d1+999 1d1+999 1d8+32 magic
+-15 -15 -15 -15
+AF ABCD 0 0
+stand stand male 15000
+0 0 medium 0
+#3001
+baker~
+the baker~
+The baker looks at you calmly, wiping flour from his face with one hand.
+~
+A fat, nice looking baker. But you can see that he has many scars on his
+body.
+~
+human~
+(null)~
+(null)~
+(null)~
+ABV 0 900 0
+23 0 1d1+999 1d1+99 1d8+20 beating
+-15 -15 -15 -15
+CDF ABCD 0 0
+stand stand male 999999
+0 0 medium 0
+#0

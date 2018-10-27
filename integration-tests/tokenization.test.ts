@@ -65,12 +65,21 @@ describe("area tokenizer", () => {
     expect(JSON.stringify(document.readValues())).toBe(fixtureData("area-1-output.txt"))
   })
 })
+
+describe("multiple section tokenizer", () => {
+  it("should tokenize a collection of sections", () => {
+    const document = getMultiple1Document()
+    // console.log(JSON.stringify(document.readValues()))
+    expect(JSON.stringify(document.readValues())).toBe(fixtureData("multiple-1-output.txt"))
+  })
+})
+
 //
 // describe("whole test file", () => {
-//   it("I accidentally the whole file", () => {
+//   it.only("I accidentally the whole file", () => {
 //     const document = getDocument()
 //     const nodes = document.readValues()
-//     console.log(JSON.stringify(nodes))
+//     // console.log(JSON.stringify(nodes))
 //
 //     nodes.forEach(node => {
 //       const data = JSON.stringify(node)
@@ -80,6 +89,12 @@ describe("area tokenizer", () => {
 //     })
 //   })
 // })
+
+function getMultiple1Document() {
+  return new Document(fixtureData("multiple-1.txt"), [
+    getAreaSchema(),
+    getMobSchema()])
+}
 
 function getArea1Document() {
   return new Document(fixtureData("area-1.txt"), [

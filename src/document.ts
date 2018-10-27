@@ -32,7 +32,7 @@ export default class Document {
       } catch (error) {
         return sections
       }
-      this.position += section.getPosition()
+      this.position = section.getPosition()
     }
     return sections
   }
