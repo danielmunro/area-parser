@@ -1,0 +1,1569 @@
+#AREA
+/mud/moosehead/area/midgaard.are~
+Midgaard~
+{ All } Diku    Midgaard~
+3000 3378
+
+#MOBILES
+#3000
+wizard~
+the wizard~
+A wizard walks around behind the counter, talking to himself.
+~
+The wizard looks old and senile, and yet he looks like a very powerful
+wizard. He is equipped with fine clothing, and is wearing many fine
+rings and bracelets.
+~
+human~
+(null)~
+(null)~
+(null)~
+ABV D 900 0
+23 0 1d1+999 1d1+999 1d8+32 magic
+-15 -15 -15 -15
+AF ABCD 0 0
+stand stand male 15000
+0 0 medium 0
+#3001
+baker~
+the baker~
+The baker looks at you calmly, wiping flour from his face with one hand.
+~
+A fat, nice looking baker. But you can see that he has many scars on his
+body.
+~
+human~
+(null)~
+(null)~
+(null)~
+ABV 0 900 0
+23 0 1d1+999 1d1+99 1d8+20 beating
+-15 -15 -15 -15
+CDF ABCD 0 0
+stand stand male 999999
+0 0 medium 0
+#3002
+grocer~
+the grocer~
+A grocer stands at the counter, with a slightly impatient look on his face.
+~
+A tall grocer, who moves two 200 pounds bag of flour around on his shoulders.
+~
+human~
+(null)~
+(null)~
+(null)~
+ABV 0 900 0
+23 0 1d1+999 1d1+99 1d8+20 beating
+-15 -15 -15 -15
+EFJ ABCD 0 0
+stand stand male 1300
+0 0 medium 0
+#3003
+weaponsmith~
+the weaponsmith~
+A weaponsmith.
+~
+A young weaponsmith, who still has lots to learn.
+~
+human~
+(null)~
+(null)~
+(null)~
+ABTV 0 900 0
+23 10 1d1+999 1d1+99 1d8+32 punch
+-15 -15 -15 -15
+CEIK ABCD 0 0
+stand stand male 25000
+0 0 medium 0
+#3004
+armourer armorer~
+the armourer~
+An armourer stands here.
+~
+An old but very strong armourer, he has made more armours in his
+lifetime than you have ever seen.
+~
+human~
+(null)~
+(null)~
+(null)~
+ABV 0 900 0
+23 10 1d1+999 1d1+99 1d8+32 punch
+-15 -15 -15 -15
+CEFJKN ABCD 0 0
+stand stand male 25000
+0 0 medium 0
+#3005
+thief~
+the thief~
+A thief, all dressed in black.
+~
+Well COUNT your money!
+~
+human~
+(null)~
+(null)~
+(null)~
+ACHS PQ -100 0
+8 1 6d8+80 1d1+99 1d5+1 punch
+2 4 3 7
+EFJN 0 0 0
+stand stand either 100
+0 0 medium 0
+#3006
+captain~
+the captain~
+A retired captain stands here, selling boats.
+~
+This captain has killed more sharks than you have eaten peas.
+~
+human~
+(null)~
+(null)~
+(null)~
+ABTV 0 900 0
+23 10 1d1+999 1d1+99 1d8+32 beating
+-15 -15 -15 -15
+CEI ABCD 0 0
+stand stand male 1300
+0 0 medium 0
+#3007
+sailor~
+the sailor~
+A sailor stands here, waiting to train you.
+~
+He looks like a strong, fit sailor.
+~
+human~
+(null)~
+(null)~
+(null)~
+ABJTV 0 900 0
+23 5 1d1+999 1d1+99 1d4+23 beating
+-15 -15 -15 -15
+FHJN ABCD 0 0
+stand stand male 58
+0 0 medium 0
+#3008
+boy~
+the pet shop boy~
+A pet shop boy is here, humming gently.
+~
+He is young and close-cropped and looks quite happy.
+~
+human~
+(null)~
+(null)~
+(null)~
+ABV 0 900 0
+23 0 1d1+999 1d1+99 1d8+20 punch
+-15 -15 -15 -15
+0 ABCD 0 0
+stand stand male 4000
+0 0 medium 0
+#3009
+jeweller~
+the jeweller~
+The jeweller is standing behind the desk.
+~
+He is fat and has a content although watchful look on his face.
+~
+human~
+(null)~
+(null)~
+(null)~
+ABV 0 900 0
+23 0 1d1+999 1d1+99 1d8+22 slap
+-15 -15 -15 -15
+AF ABCD 0 0
+stand stand male 2588888
+0 0 medium 0
+#3010
+leather worker~
+the leather worker~
+The leather worker is sitting by the table, sewing a leather cap.
+~
+She looks as an honest, hard-working artisan who only just earns enough to
+keep herself going.
+~
+human~
+(null)~
+(null)~
+(null)~
+ABV 0 900 0
+23 0 1d1+999 1d1+99 1d8+20 punch
+-15 -15 -15 -15
+AFN ABCD 0 0
+stand stand female 4500
+0 0 medium 0
+#3011
+hassan~
+Hassan~
+Hassan is here, waiting to dispense some justice.
+~
+Big. Very big.
+Stupid. Very stupid.
+
+Hassan, the guardian of  the Temple of Mojo, towers over you.  He's over 12
+feet tall, every inch of it muscle. It would be a Bad Thing to commit a crime
+in his presence.
+~
+giant~
+Hi dee ho neighbor!~
+Yippee for me.~
+I'm a lumberjack and I'm OK.~
+ABTV CDFJVZ 1000 3000
+51 30 1d1+10000 1d1+499 5d4+40 crush
+-25 -25 -25 -25
+ACDEFHIKLNOT ABPQR CD 0
+stand stand male 0
+0 0 giant 0
+F vul J
+#3012
+healer~
+the healer~
+A healer is here, selling spells.
+~
+Although retired from adventuring, the healer still lends a hand.
+Type 'heal' to see a listing of spells.
+~
+human~
+(null)~
+(null)~
+(null)~
+ABQVa DFH 1000 0
+44 0 1d1+999 1d1+999 2d4+30 divine
+-15 -15 -15 -15
+FHIK ABCD 0 0
+stand stand male 5000
+0 0 medium 0
+#3013
+chadeech guardian~
+Chadeech the guardian~
+Chadeech the guardian is here selling keys to the tower
+~
+Chadeech is an old coot. Leave him alone.
+~
+human~
+(null)~
+(null)~
+(null)~
+ABT 0 0 0
+60 0 1d1+9999 0d0+5000 0d0+100 slash
+-10 -10 -10 -10
+EFNU ABCD 0 0
+stand stand none 0
+0 0 medium 0
+F par GHIJK
+#3014
+adept evil tower~
+The Evil Adept~
+An Evil Adept is here.
+~
+The Evil Adept is here convincing you to depart.
+~
+human~
+(null)~
+(null)~
+(null)~
+ABT 0 0 0
+60 1 0d0+8000 0d0+10000 0d0+100 slice
+0 0 0 0
+EFNU ABCDEFGHIJKLMNOPQ 0 0
+stand stand none 0
+0 0 medium 0
+F par GHIJK
+#3015
+fido dog yltsaeb odif~
+the yltsaeb odif~
+A yltsaeb odif is here, walking backwards.
+~
+Odif si a llams god taht sah a luof llems dna seceip fo dettor taem gnignah
+dnuora sti hteet.
+~
+fido~
+(null)~
+(null)~
+(null)~
+AFGHU 0 -200 0
+0 0 1d6+4 1d1+99 1d4+0 bite
+10 10 10 10
+0 0 0 0
+stand stand either 0
+0 0 small 0
+#3016
+chadeech guardian~
+Chadeech the guardian~
+Chadeech the guardian is here, guarding the tower key.
+~
+Chadeech is an old coot. Leave him alone.
+~
+human~
+(null)~
+(null)~
+(null)~
+ABT 0 0 0
+60 0 0d0+10000 0d0+10000 0d0+100 slash
+-10 -10 -10 -10
+EFNU ABLQ 0 0
+stand stand none 0
+0 0 medium 0
+F par GHIJK
+#3017
+hooter~
+Hoother the Owl~
+Hooter the Owl stands here.
+~
+Aristotle was once a free squirrel, but since his capture by the
+evil coffee-holic Rage, he has taken up residence in Rage's
+ashtray.  Covered in burns, he looks long dead, but still has a
+spark of life left in him.
+~
+unique~
+(null)~
+(null)~
+(null)~
+ABCG Ace 1000 0
+1 60 1d2+1 0d0+0 2d2+0 bite
+-50 -50 -50 -50
+BEFHJNU ABCDEFGHJKLMNOPQRS 0 0
+stand stand none 0
+AGV ABCDEF small 0
+#3018
+vlad dark assassin~
+the assassin~
+Vladimir, the Dark Assassin, is here selling assassin stuff.
+~
+~
+human~
+(null)~
+(null)~
+(null)~
+ABTV 0 0 0
+60 100 1d1+99 1d1+99 1d1+1 pierce
+0 0 0 0
+EFNU 0 0 0
+stand stand none 0
+0 0 medium 0
+F par GHIJK
+#3019
+Frey~
+Frey~
+Frey searches for the unjust.
+~
+The God of Fairyland, commanding all the elves and faeries of in
+all of Boinga. The weather is at his command, so becareful of his
+temper.
+~
+giant~
+(null)~
+(null)~
+(null)~
+AGRV CDFJV 1000 0
+45 30 1d1+5999 1d1+499 5d4+40 blast
+-25 -25 -25 -15
+ACDEFHIKLNOT ABPQ DJ 0
+stand stand male 0
+0 0 huge 0
+F vul J
+#3020
+guildmaster master~
+the guildmaster~
+Your guildmaster is standing here.
+~
+Even though your guildmaster looks old and tired, you can clearly see the
+vast amount of knowledge she possesses. She is wearing fine magic clothing,
+and you notice that she is surrounded by a blue shimmering aura.
+~
+elf~
+(null)~
+(null)~
+(null)~
+ABKRV DEF 1000 0
+36 0 1d1+1999 1d1+999 3d8+24 magic
+-15 -15 -15 -15
+FG ABCD 0 0
+stand stand female 0
+0 0 medium 0
+#3021
+guildmaster master~
+the guildmaster~
+Your guildmaster is standing here.
+~
+You are in no doubt that this guildmaster is truly close to your god; he has
+a peaceful, loving look. You notice that he is surrounded by a white aura.
+~
+human~
+(null)~
+(null)~
+(null)~
+ABKQV CDEFH 1000 0
+36 0 1d1+1999 1d1+999 3d8+24 divine
+-15 -15 -15 -15
+EFHIK ABCD 0 0
+stand stand male 0
+0 0 medium 0
+#3022
+guildmaster master~
+the guildmaster~
+Your guildmaster is standing here.
+~
+You realize that whenever your guildmaster moves, you fail to notice it:
+the way of the true thief.  She is dressed in poor clothing, having
+the appearance of a beggar.
+human~
+unique~
+(null)~
+(null)~
+(null)~
+ABKSV DF 1000 0
+36 0 1d1+1999 1d1+199 3d8+24 punch
+-15 -15 -15 -15
+BEFHJN ABCD 0 0
+stand stand female 0
+0 0 medium 0
+#3023
+guildmaster master~
+the guildmaster~
+Your guildmaster is standing here.
+~
+This is your master. A short, strong dwarf with bulging muscles.  Several scars
+across his body prove that he was using arms before you were born.  He
+has a calm look on his face.
+~
+dwarf~
+(null)~
+(null)~
+(null)~
+ABKTV DF 1000 0
+36 0 1d1+1999 1d1+199 3d8+24 beating
+-20 -20 -20 -20
+ACDEIK ABCD 0 0
+stand stand male 0
+0 0 medium 0
+#3024
+sorcerer~
+the sorcerer~
+A sorcerer is guarding the entrance.
+~
+He is an experienced mage who has specialized in the field of Combat Magic.
+He is here to guard the Mage's Guild and his superior knowledge of offensive
+as well as defensive spells make him a deadly opponent.
+~
+elf~
+(null)~
+(null)~
+(null)~
+ABRTV BD 800 0
+30 5 1d1+999 1d1+499 10d4+10 magic
+-10 -10 -10 -8
+AEG AB CD 0
+stand stand male 2000
+0 0 medium 0
+#3025
+templar~
+the knight templar~
+A knight templar is guarding the entrance.
+~
+He is a specially trained warrior belonging to the military order of the Faith.
+His duty is to protect the faithful from persecution and infidel attacks and
+his religious devotion combined with his superior skill makes him a deadly
+opponent.
+~
+human~
+(null)~
+(null)~
+(null)~
+ABQTV DJ 800 0
+30 5 1d1+999 1d1+499 5d8+10 divine
+-10 -10 -10 -7
+DEIK AB CD 0
+stand stand male 2000
+0 0 medium 0
+#3026
+assassin~
+the assassin~
+An assassin is guarding the entrance.
+~
+He is a thief who has specialized in killing others as effectively as possible,
+using all sorts of weapons.  His superior knowledge of how and where to use
+them combined with his extraordinary stealth makes him a deadly opponent.
+~
+human~
+(null)~
+(null)~
+(null)~
+ABSTV DFPQ 800 0
+30 8 1d1+999 1d1+99 4d10+12 pierce
+-12 -12 -12 -6
+BEFJN AB CD 0
+stand stand male 2000
+0 0 medium 0
+#3027
+knight~
+the knight~
+A knight is guarding the entrance.
+~
+He is an expert warrior who has attained knighthood through countless
+chivalrous deeds.  His duty is to protect the Guild of Swordsmen and his
+extreme skill combined with his experience in warfare makes him a deadly
+opponent.
+~
+human~
+(null)~
+(null)~
+(null)~
+ABTV DF 800 0
+30 10 1d1+999 1d1+199 11d4+10 punch
+-10 -10 -10 -4
+ACDEHIK AB CD 0
+stand stand male 2000
+0 0 medium 0
+#3028
+Loki~
+Loki~
+Loki searches for the unjust.
+~
+The God of Mischief, Strife and Fire can never be trusted.
+He is even now hunting down his fellow villians for his own dark
+purposes.
+~
+giant~
+(null)~
+(null)~
+(null)~
+AGSV CDFJV 1000 0
+45 30 1d1+6999 1d1+499 5d4+40 pierce
+-25 -25 -25 -15
+ABDEFHIKLNOT ABCPQ D DE
+stand stand male 0
+0 0 huge 0
+F vul J
+#3029
+Thor~
+Thor~
+Thor searches for the unjust.
+~
+The God of Thunder with his large red beard and red hair weild his
+mighty Hammer in the name of Odin.
+~
+giant~
+(null)~
+(null)~
+(null)~
+AGTV CDFJV 1000 0
+45 30 1d1+7999 1d1+499 5d4+40 crush
+-25 -25 -25 -15
+ACDEFHIKLNOT ABJPQ DJ D
+stand stand male 0
+0 0 huge 0
+F vul J
+#3030
+Hel~
+Hel~
+Hel searches for the unjust.
+~
+The Goddess of Death causing plagues, diseases and pestilence
+with a wave of her hand. She is a gaunt woman, whose body is
+completely white on the left side and jet black on the right, as
+well the left half of her face is totally blank.
+~
+giant~
+(null)~
+(null)~
+(null)~
+AGQV CDFJV 1000 0
+45 30 1d1+5999 1d1+499 5d4+40 slice
+-25 -25 -25 -15
+ADEFHIKLNOT ABGPQ J C
+stand stand female 0
+0 0 huge 0
+F vul J
+#3031
+pack mare~
+a pack mare~
+A pack mare stamps impatiently here.
+~
+Generic description.~
+human~
+(null)~
+(null)~
+(null)~
+ABITZ 0 0 0
+2 10 5d5+10 0d0+0 2d6+5 bite
+7 7 7 10
+EFNU AB 0 0
+stand stand female 0
+0 0 large 0
+F par GHIJK
+#3032
+pack wyrm~
+a pack wyrm~
+A pack wyrm slithers around on the ground here.
+~
+Dumber than a dragon and smarter than a mare, this green pack
+wyrm is here and ready to haul your stuff.
+~
+dragon~
+(null)~
+(null)~
+(null)~
+ABITZ 0 0 0
+4 10 5d5+10 0d0+0 2d6+5 bite
+7 7 7 10
+EFNU AB 0 0
+stand stand female 0
+MV BLW large 0
+F aff JT
+F res BEH
+F vul FI
+F for Z
+F par GHIJKPQUVX
+#3033
+war turtle~
+a vicious war turtle~
+A vicious war turtle snaps at you.
+~
+Big, slow, but kind of cute in it's own way, this big turtle will
+carry stuff forever.
+~
+lizard~
+(null)~
+(null)~
+(null)~
+ABITZ 0 0 0
+6 10 5d5+10 0d0+0 2d6+5 bite
+7 7 7 10
+EFNU AB 0 0
+stand stand female 0
+HMV BLW large 0
+F res L
+F vul I
+F for GXc
+F par HKQV
+#3034
+sales salesman manney~
+Sales Manney~
+A travelling salesman in a cheap suit is here.
+~
+A sleazy looking travelling salesman in a cheap suit stands before you.
+His hair is slicked back and his tongue is forked.  Would you really buy
+anything from him?
+~
+human~
+Hello!  Have I got a bargain for you!~
+I've got to make my quota for the month, you'ld be robbing me blind on this.~
+Would ya like to buy an 'O'?  Circular and sweet, round in the middle, really quite a treat.~
+ACGH 0 900 0
+1 0 3d6+15 9d8+99 5d5+9 pound
+10 10 10 10
+NU 0 0 C
+stand stand either 0
+0 0 medium 0
+#3035
+cityguard guard~
+the cityguard~
+A cityguard is here, guarding the gate alertly.
+~
+A big, strong, helpful, trustworthy guard.
+~
+human~
+Hey guys, have you checked todays lost items at HQ?~
+I can't believe someone would lose something like that.~
+I would live long with the money I could get from those lost items.~
+ABT 0 1000 0
+15 3 15d15+160 1d1+149 2d4+4 punch
+0 0 0 8
+CDEKLTU 0 C 0
+stand stand either 0
+0 0 medium 0
+#3036
+deadhauler~
+The deadhauler~
+A man dressed in rags pulls a cart filled with corpses along here.
+~
+Dirty and covered with filth, this man is working very hard to
+pull his cart along.
+~
+human~
+Bring out your dead!  Bring out your dead!~
+That'll be a nine pence.  See you on Thursday.~
+You'll be stone cold dead in a minute.~
+ACGT 0 0 0
+15 70 10d10+8 10d10+8 2d10+5 slime
+25 25 25 25
+CEFKNU 0 A S
+stand stand none 1234
+0 0 huge 0
+F par GHIJK
+#3037
+honor guard beta~
+a beta-version Honor guard~
+A guard wearing the insignia of Honor stands here.
+~
+Honor Guard, Version 1.0 Beta
+~
+human~
+(null)~
+(null)~
+(null)~
+ABGT 0 1000 0
+40 1 50d100+100 1d1+99 1d1+1 slash
+-20 -20 -20 -20
+CFNU 0 0 0
+stand stand none 0
+0 0 medium 0
+F par GHIJK
+#3038
+Small red haired kid~
+A small kid~
+A small red haired kid plays with his paper boat at the pond.
+~
+Red, fiery look hair is cut into shape of lightning and his eyes are fixed
+to the small paper boat. On his left shoulder however, is tattooed the
+mark of Troll gang of Dangerous neighbourhood.
+~
+troll~
+(null)~
+(null)~
+(null)~
+AB TV -1000 0
+52 0 50d10+5500 26d9+100 6d7+20 beating
+-22 -22 -22 2
+EFNU AB 0 0
+sit sit none 0
+0 0 medium 0
+F aff Fc
+F res BE
+F vul HK
+F for B
+F par UV
+#3039
+The city executioner~
+The city executioner~
+Black robed man is waiting here to execute someone.
+~
+Dark hood covers his head hiding all inhuman aspects of his.
+Dark glaze from the depths of darkness stares right at you, as
+the magic he has recieved as a blessing from the gods, sees right
+through your very soul. Hidden below his robes, is hidden something
+bright as metal...
+~
+human~
+(null)~
+(null)~
+(null)~
+AGTU DEFHJNTUV 0 0
+40 40 50d10+5500 50d10+5500 6d7+29 acbite
+-3 -3 -3 -3
+ABCDEFKNPTU AB ABCD 0
+stand stand male 10
+0 0 giant 0
+F par GHIJK
+#3040
+bartender~
+the bartender~
+A bartender watches you calmly, while he skillfully mixes a drink.
+~
+A tired looking Bartender who hates trouble in his bar.
+~
+human~
+(null)~
+(null)~
+(null)~
+ABV 0 900 0
+23 0 1d1+499 1d1+99 1d8+18 beating
+-6 -6 -6 0
+FHJN AB CD 0
+stand stand male 150
+0 0 medium 0
+#3041
+waiter~
+the waiter~
+A waiter is going around from one place to another.
+~
+A tired looking waiter.
+~
+human~
+(null)~
+(null)~
+(null)~
+ABV 0 900 0
+23 0 1d1+499 1d1+99 1d8+18 beating
+-6 -6 -6 0
+FHJN AB CD 0
+stand stand male 150
+0 0 medium 0
+#3042
+waiter~
+the waiter~
+A man who in his young days was a famous sorcerer but now leads a quiet,
+peaceful life as a waiter.
+~
+~
+human~
+(null)~
+(null)~
+(null)~
+ABRV D 600 0
+23 0 1d1+499 1d1+99 1d8+18 beating
+-6 -6 -6 0
+FJN AB CD 0
+stand stand male 150
+0 0 medium 0
+#3043
+waiter~
+the waiter~
+A waiter who seems to have reached contact with God.
+~
+~
+human~
+(null)~
+(null)~
+(null)~
+ABQV 0 600 0
+23 0 1d1+499 1d1+99 1d8+18 beating
+-6 -6 -6 0
+FHJN AB CD 0
+stand stand male 150
+0 0 medium 0
+#3044
+waiter~
+the waiter~
+A waiter who knows where all his customers keep their money.
+~
+~
+human~
+(null)~
+(null)~
+(null)~
+ABSV 0 600 0
+23 0 1d1+499 1d1+99 1d8+18 beating
+-6 -6 -6 0
+FHJN AB CD 0
+stand stand male 150
+0 0 medium 0
+#3045
+waiter~
+the waiter~
+A waiter who easily could kill you, and still carry quite a few firebreathers.
+~
+~
+human~
+(null)~
+(null)~
+(null)~
+ABTV 0 600 0
+23 0 1d1+499 1d1+99 1d8+18 beating
+-6 -6 -6 0
+BFHJN AB CD 0
+stand stand male 150
+0 0 medium 0
+#3046
+filthy~
+Filthy~
+Filthy is standing here, eager to serve you a special drink.
+~
+Filthy looks real, ehm, dirty. He likes to keep his costumers happy,
+but do not mess with him or else he'll get upset.
+~
+human~
+(null)~
+(null)~
+(null)~
+ABSV 0 600 0
+23 2 1d1+499 1d1+99 1d8+18 beating
+-8 -8 -8 -4
+BEFJN AB CD 0
+stand stand male 200
+0 0 medium 0
+#3047
+hassan~
+Hassan~
+Hassan is here, waiting to dispense some justice.
+~
+Big. Very big.
+Stupid. Very stupid.
+
+Hassan, the guardian of  the Temple of Mojo, towers over you.  He's over 12
+feet tall, every inch of it muscle. It would be a Bad Thing to commit a crime
+in his presence.
+~
+giant~
+(null)~
+(null)~
+(null)~
+ABTV CDFJV 1000 0
+45 30 1d1+3999 1d1+499 5d4+40 crush
+-25 -25 -25 -15
+ACDEFHIKLNOT ABPQR CD 0
+stand stand male 0
+0 0 huge 0
+#3048
+generic mob~
+Generic short description~
+Generic long description~
+Generic description.~
+human~
+(null)~
+(null)~
+(null)~
+AT 0 0 0
+1 1 0d0+0 0d0+0 0d0+0 slice
+0 0 0 0
+EFNU 0 0 0
+stand stand none 0
+0 0 medium 0
+F par GHIJK
+#3060
+cityguard guard~
+the cityguard~
+A cityguard stands here.
+~
+A big, strong, helpful, trustworthy guard.
+~
+human~
+(null)~
+(null)~
+(null)~
+ACGT 0 1000 3000
+15 3 15d15+160 1d1+149 2d4+4 punch
+0 0 0 8
+CDEKLTU 0 C 0
+stand stand either 150
+0 0 medium 0
+#3061
+janitor~
+the janitor~
+A janitor is walking around, cleaning up.
+~
+~
+human~
+(null)~
+(null)~
+(null)~
+AGH 0 900 0
+1 0 2d6+10 1d1+99 1d5+0 pound
+10 10 10 10
+NU 0 0 C
+stand stand either 10
+0 0 medium 0
+#3062
+fido dog~
+the beastly fido~
+A beastly fido is here.
+~
+Fido is a small dog that has a foul smell and pieces of rotted meat hanging
+around its teeth.
+~
+fido~
+(null)~
+(null)~
+(null)~
+AFGHU 0 -200 0
+0 0 1d6+4 1d1+99 1d4+0 bite
+10 10 10 10
+0 0 0 0
+stand stand either 0
+0 0 small 0
+#3063
+vagabond~
+the vagabond~
+A vagabond is here, looking for victims.
+~
+He looks pretty mean.
+~
+human~
+(null)~
+(null)~
+(null)~
+ACS 0 -200 0
+5 1 2d6+60 1d1+99 1d6+1 punch
+7 5 5 10
+BJNQ 0 0 C
+stand stand male 18
+0 0 medium 0
+#3064
+drunk~
+the drunk~
+A singing, happy drunk wanders around, singing about Moria.
+~
+A drunk who seems to be too happy, and to carry too much money.
+~
+human~
+(null)~
+(null)~
+(null)~
+AG 0 400 0
+2 -1 2d6+22 1d1+99 1d6+0 beating
+8 8 8 10
+U 0 0 C
+stand stand male 65
+0 0 medium 0
+#3065
+beggar~
+the beggar~
+A beggar is here, asking for a few coins.
+~
+The beggar looks like she is fed up with life.
+~
+human~
+(null)~
+(null)~
+(null)~
+AB 0 400 0
+1 0 2d6+10 1d1+99 1d5+0 beating
+8 8 8 10
+FJNU 0 0 C
+stand stand female 0
+0 0 medium 0
+#3066
+cat~
+an alley cat~
+An alley cat hisses at you.
+~
+The alley cat is half starved and more than a little feral.
+~
+cat~
+(null)~
+(null)~
+(null)~
+AFGHU 0 -200 0
+0 1 1d6+4 1d1+99 1d4+0 scratch
+8 8 8 9
+DR 0 0 C
+stand stand either 0
+0 0 small 0
+#3067
+cityguard guard~
+the cityguard~
+A cityguard is here, guarding the gate.
+~
+A big, strong, helpful, trustworthy guard.
+~
+human~
+(null)~
+(null)~
+(null)~
+ABT 0 1000 3000
+15 3 15d15+160 1d1+149 2d4+4 punch
+0 0 0 8
+CDEKLTU 0 C 0
+stand stand either 150
+0 0 medium 0
+#3068
+cityguard guard~
+the cityguard~
+A cityguard is here, guarding the gate.
+~
+A big, strong, helpful, trustworthy guard.
+~
+human~
+(null)~
+(null)~
+(null)~
+ABT 0 1000 3000
+15 3 15d15+160 1d1+149 2d4+4 punch
+0 0 0 8
+CDEKLTU 0 C 0
+stand stand either 150
+0 0 medium 0
+#3069
+cityguard guard~
+the cityguard~
+A cityguard is here, guarding the mayor.
+~
+A big, strong, helpful, trustworthy guard.
+~
+human~
+(null)~
+(null)~
+(null)~
+ABT BQ 1000 3000
+20 4 20d20+200 1d1+199 2d4+7 punch
+-4 -6 -6 0
+CDEHKLTU 0 C 0
+stand stand either 500
+0 0 medium 0
+#3070
+shopkeeper old man~
+the ancient potion-brewer~
+An old man eyes you greedily.
+The old man says, 'Would you like to buy a nice love potion?'
+~
+He looks very dangerous.  I wouldn't try to rob him.
+~
+human~
+(null)~
+(null)~
+(null)~
+ABQRV DEF 1000 0
+32 0 1d1+999 1d1+999 10d10+10 magic
+-15 -15 -15 -15
+FGH ABCD 0 0
+stand stand male 5000
+0 0 medium 0
+#3071
+cityguard guard~
+the cityguard~
+A cityguard is here, guarding the gate alertly.
+~
+A big, strong, helpful, trustworthy guard.
+~
+human~
+(null)~
+(null)~
+(null)~
+ABT 0 1000 3000
+15 3 15d15+160 1d1+149 2d4+4 punch
+0 0 0 8
+CDEKLTU 0 C 0
+stand stand either 150
+0 0 medium 0
+#3072
+cityguard guard~
+the cityguard~
+A cityguard is here, guarding the gate.  He is half asleep.
+~
+A big, strong, helpful, trustworthy guard.
+~
+human~
+(null)~
+(null)~
+(null)~
+ABT 0 1000 3000
+15 3 15d15+160 1d1+149 2d4+4 punch
+0 0 0 8
+CDEKLTU 0 C 0
+stand stand either 150
+0 0 medium 0
+#3090
+kitten cat pet~
+the kitten~
+A small loyal kitten is here.
+~
+The kitten looks like a cute, little, fierce fighter.
+~
+cat~
+(null)~
+(null)~
+(null)~
+ABU 0 400 0
+1 2 2d6+11 1d1+99 1d4+0 scratch
+8 8 8 10
+0 0 C 0
+stand stand either 0
+0 0 tiny 0
+#3091
+puppy dog pet~
+the puppy~
+A small loyal puppy is here.
+~
+The puppy looks like a cute, little, fierce fighter.
+~
+dog~
+(null)~
+(null)~
+(null)~
+ABU F 400 0
+3 2 4d6+25 1d1+99 1d6+0 bite
+7 7 7 10
+N 0 C 0
+stand stand either 0
+0 Q small 0
+#3092
+beagle dog pet~
+the beagle~
+A small, quick, loyal beagle is here.
+~
+The beagle looks like a fierce fighter.
+~
+dog~
+(null)~
+(null)~
+(null)~
+ABU F 400 0
+5 3 3d12+50 1d1+99 1d6+0 bite
+5 5 5 9
+N 0 C 0
+stand stand either 0
+0 Q small 0
+#3093
+rottweiler dog pet~
+the rottweiler~
+A large, loyal rottweiler is here.
+~
+The rottweiler looks like a strong, fierce fighter.
+~
+dog~
+(null)~
+(null)~
+(null)~
+ABU F 400 0
+7 3 6d10+60 1d1+149 2d4+1 bite
+4 4 4 8
+CDL 0 C 0
+stand stand either 0
+0 0 medium 0
+#3094
+wolf pet~
+the wolf~
+A large, trained wolf is here.
+~
+The wolf looks like a strong, fearless fighter.
+~
+wolf~
+(null)~
+(null)~
+(null)~
+ABU F 0 0
+9 3 6d10+80 1d1+99 2d5+1 bite
+4 4 4 8
+C 0 C 0
+stand stand either 0
+0 0 medium 0
+#3095
+eagle bird pet~
+the eagle~
+A loyal eagle circles overhead.
+~
+The eagle looks like a strong fierce fighter.
+~
+song bird~
+(null)~
+(null)~
+(null)~
+ABIU FJ 0 0
+12 3 6d10+130 1d1+99 2d5+3 claw
+0 0 0 8
+N 0 C 0
+stand stand either 0
+0 U small 0
+#3096
+lion pet~
+the lion~
+A large, faithful lion is here.
+~
+The great lion looks very fierce.
+~
+cat~
+(null)~
+(null)~
+(null)~
+ABIU F 0 0
+15 2 4d9+205 1d1+99 2d8+3 chomp
+-2 -2 -2 7
+C 0 C 0
+stand stand either 0
+0 0 medium 0
+#3097
+tiger pet~
+the tiger~
+A great, loyal tiger is here.
+~
+The large, striped tiger looks like a savage fighter.
+~
+cat~
+(null)~
+(null)~
+(null)~
+ABIU F 0 0
+20 3 4d9+325 1d1+99 4d4+5 claw
+-4 -4 -4 6
+CMN 0 C 0
+stand stand either 0
+0 0 medium 0
+#3100
+maid~
+the maid~
+The maid is waiting for your order.
+~
+She is very beautiful with golden hair, and deep blue eyes. A good reason
+for coming here more often.
+~
+human~
+(null)~
+(null)~
+(null)~
+ABV 0 1000 0
+23 2 1d1+499 1d1+99 1d8+12 beating
+-15 -15 -15 -15
+FG AB CD 0
+stand stand female 180
+0 0 medium 0
+#3120
+sexton~
+the sexton~
+A sexton is sitting here, drinking hot tea.
+~
+The sexton looks like he is relaxing after another grave-digging job.
+~
+human~
+(null)~
+(null)~
+(null)~
+ABH 0 800 0
+3 0 2d6+35 1d1+99 1d7+0 punch
+7 7 7 10
+0 0 0 C
+sit sit male 75
+0 0 medium 0
+#3121
+swan~
+the swan~
+A swan is swimming around in the pond.
+~
+The white swan is very elegant.
+~
+water fowl~
+(null)~
+(null)~
+(null)~
+ABU 0 1000 0
+1 0 2d6+10 1d1+99 1d5+0 peck
+8 8 8 10
+CFR 0 0 C
+stand stand either 0
+0 0 small 0
+#3122
+duckling~
+the duckling~
+A duckling is swimming around in the pond.
+~
+The duckling is adorable, it looks most of all like a tiny furball.
+~
+water fowl~
+(null)~
+(null)~
+(null)~
+ABU 0 1000 0
+0 0 1d4+0 1d1+99 1d1+0 peckb
+10 10 10 10
+FR 0 0 C
+stand stand either 0
+0 0 tiny 0
+#3123
+sparrow~
+the sparrow~
+A sparrow is flapping around on the ground.
+~
+The sparrow looks like it is enjoying life.
+~
+song bird~
+(null)~
+(null)~
+(null)~
+AGHU 0 1000 0
+0 0 2d6+0 1d1+99 1d3+0 peck
+10 10 10 10
+R 0 0 C
+stand stand either 0
+0 0 tiny 0
+#3124
+duck~
+the duck~
+A duck is here, quacking happily.
+~
+The duck is quite fat.  It looks like it is enjoying life.
+~
+water fowl~
+(null)~
+(null)~
+(null)~
+AGU 0 1000 0
+1 0 2d6+5 1d1+99 1d4+0 peckb
+10 10 10 10
+FR 0 0 C
+stand stand either 0
+0 0 small 0
+#3140
+captain~
+the captain~
+The captain of the guard is looking very upset.
+~
+A big, strong, angry captain.
+~
+human~
+(null)~
+(null)~
+(null)~
+ABCFT D 1000 3000
+17 4 15d15+190 1d1+199 2d4+6 punch
+-2 -2 -2 6
+CDEHKLU 0 C 0
+stand stand male 500
+0 0 medium 0
+#3141
+cityguard guard~
+the cityguard~
+A cityguard stands here, looking very upset.
+~
+A big, strong, angry guard.
+~
+human~
+(null)~
+(null)~
+(null)~
+ABCFT 0 1000 3000
+15 3 15d15+10 1d1+149 2d4+4 punch
+0 0 0 8
+CDEHKLU 0 C 0
+stand stand either 150
+0 0 medium 0
+#3142
+secretary~
+the secretary~
+A secretary is sitting at the desk.
+~
+She looks very busy.
+The Secretary says 'Sorry, but the Mayor is extremely busy today'.
+The Secretary says 'Please sit down and have a seat in the meantime'.
+~
+human~
+(null)~
+(null)~
+(null)~
+AB 0 900 0
+12 2 4d12+148 1d1+99 2d7+1 slap
+0 0 0 8
+FHI 0 0 0
+sit sit female 100
+0 0 medium 0
+#3143
+mayor~
+The Mayor of Midgaard~
+The Mayor of Midgaard is here.
+~
+He is a stocky, middle-aged man with thin, grey hair.
+~
+human~
+(null)~
+(null)~
+(null)~
+AB N 900 3000
+23 6 6d10+500 1d1+199 1d8+12 punch
+-15 -15 -15 -15
+EFNS AB CD 0
+sleep stand male 1000
+0 0 medium 0
+#3144
+crier~
+the town crier~
+The town crier is here, weeping quietly.
+~
+He is very good at his job - completely dissolved in tears.
+~
+human~
+(null)~
+(null)~
+(null)~
+AH 0 900 0
+1 0 2d6+10 1d1+99 1d5+0 slap
+10 10 10 10
+D 0 0 C
+stand stand male 14
+0 0 medium 0
+#3150
+wilf~
+Wilf~
+Wilf is busy writing Moose poetry, but wonders if you want to eat.
+~
+Wilf looks like your typical bulldog and moose loving Ph.D.
+~
+human~
+(null)~
+(null)~
+(null)~
+ABV 0 900 0
+25 0 1d1+999 1d1+199 1d8+10 slap
+-15 -15 -15 -15
+FG ABCD 0 0
+stand stand male 1000
+0 0 medium 0
+#3160
+st. st bob~
+St. Bob~
+St. Bob is here, digging through a pile of scrolls, papers, and maps.
+~
+Ragged brown hair frames a ghostly, pale face.  Puffy eyelids surround two
+sky blue, haunting eyes.  An old, brown robe is wrapped around his frail
+frame.  He looks up from his pile of papers and maps and looks inquiringly
+at you, smiling faintly.
+~
+human~
+(null)~
+(null)~
+(null)~
+ABV 0 900 0
+25 0 1d1+999 1d1+199 5d6+20 slap
+-15 -15 -15 -15
+FG ABCD 0 0
+stand stand male 1000
+0 0 medium 0
+#3161
+lister green tree snake~
+Lister~
+A green tree snake is sitting here on a pile of books.
+~
+This is St. Bob's pet tree snake, Lister.  Something seems odd about his
+jaw, almost as if he were smiling at you.  He's quite friendly, but don't
+get him drunk.
+~
+snake~
+(null)~
+(null)~
+(null)~
+ABV D 200 0
+15 3 11d10+200 1d1+99 4d6+4 bite
+-6 -5 -2 4
+FHNR 0 F 0
+stand stand male 0
+0 0 small 0
+#3162
+otho money changer moneychanger~
+Otho the Changer~
+Otho the Money Changer sits behind his desk, waiting for your coins.
+~
+Otho is grotesquely fat man dressed in rich clothes.  Apparently the money
+changing business pays quite well in this busy city, or possibly the rumors
+of his fencing services are true...
+~
+human~
+(null)~
+(null)~
+(null)~
+ABVd DF 900 0
+25 0 1d1+999 1d1+199 5d6+20 slap
+-15 -15 -15 -15
+FG ABCD 0 0
+stand stand male 1000
+0 0 medium 0
+#3163
+thief~
+the thief~
+A thief, all dressed in black.
+~
+Well COUNT your money!
+~
+human~
+(null)~
+(null)~
+(null)~
+ACHS PQ -100 0
+30 1 6d8+400 1d1+99 4d5+5 stab
+2 4 3 7
+EFJN 0 0 0
+stand stand either 100
+0 0 medium 0
+#0
+
+#OBJECTS
+#3000
+barrel beer~
+a barrel of beer~
+A beer barrel has been left here.~
+wood~
+drink 0 A
+300 300 'beer' 0 0
+0 160 75 P

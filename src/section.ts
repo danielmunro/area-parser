@@ -52,7 +52,11 @@ export default class Section {
   }
 
   private getNextPart(data: string) {
-    return data.substring(this.position, data.indexOf("\n", this.position))
+    let end = data.indexOf("\n", this.position)
+    if (end === -1) {
+      end = data.length
+    }
+    return data.substring(this.position, end)
   }
 
   private throwTokenizeEndDelimiterError(token: Token, endDelimiter: string) {

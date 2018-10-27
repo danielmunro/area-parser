@@ -67,31 +67,36 @@ describe("area tokenizer", () => {
 })
 
 describe("multiple section tokenizer", () => {
-  it("should tokenize a collection of sections", () => {
+  it("should tokenize a small collection of sections", () => {
     const document = getMultiple1Document()
     expect(JSON.stringify(document.readValues())).toBe(fixtureData("multiple-1-output.txt"))
   })
 
-  it("should tokenize a collection of sections", () => {
+  it("should tokenize another small collection of sections", () => {
     const document = getMultiple2Document()
     expect(JSON.stringify(document.readValues())).toBe(fixtureData("multiple-2-output.txt"))
   })
-})
 
-describe("whole test file", () => {
-  it("I accidentally the whole file", () => {
-    const document = getDocument()
-    const nodes = document.readValues()
-    // console.log(JSON.stringify(nodes))
-
-    nodes.forEach(node => {
-      const data = JSON.stringify(node)
-      // console.log("data", data)
-      expect(data).not.toContain("~")
-      expect(data).not.toContain("#")
-    })
+  it("should tokenize a larger collection of sections", () => {
+    const document = getMultiple3Document()
+    expect(JSON.stringify(document.readValues())).toBe(fixtureData("multiple-3-output.txt"))
   })
 })
+//
+// describe("whole test file", () => {
+//   it("I accidentally the whole file", () => {
+//     const document = getDocument()
+//     const nodes = document.readValues()
+//     // console.log(JSON.stringify(nodes))
+//
+//     nodes.forEach(node => {
+//       const data = JSON.stringify(node)
+//       // console.log("data", data)
+//       expect(data).not.toContain("~")
+//       expect(data).not.toContain("#")
+//     })
+//   })
+// })
 
 function getMultiple1Document() {
   return new Document(fixtureData("multiple-1.txt"), [
@@ -101,6 +106,13 @@ function getMultiple1Document() {
 
 function getMultiple2Document() {
   return new Document(fixtureData("multiple-2.txt"), [
+    getMobSchema(),
+    getObjectSchema()])
+}
+
+function getMultiple3Document() {
+  return new Document(fixtureData("multiple-3.txt"), [
+    getAreaSchema(),
     getMobSchema(),
     getObjectSchema()])
 }
