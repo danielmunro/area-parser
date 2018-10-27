@@ -3,5 +3,4 @@
 Midgaard~
 { All } Diku    Midgaard~
 3000 3378
-S
 #0

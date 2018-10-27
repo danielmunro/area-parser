@@ -12,7 +12,8 @@ export default class Section {
     public readonly name: string,
     public readonly header: Token,
     public readonly tokens: Token[],
-    public readonly isRepeatable: boolean = true) {}
+    public readonly isRepeatable: boolean,
+    public readonly endDelimiter: string) {}
 
   public getNodes(data: string, position: number): Node[] {
     this.position = position
@@ -29,7 +30,7 @@ export default class Section {
       nodes.push(...createdNodes)
     })
     this.first = false
-    this.position += 2
+    this.position += this.endDelimiter.length
     return nodes
   }
 

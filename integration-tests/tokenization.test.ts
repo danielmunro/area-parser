@@ -45,6 +45,11 @@ describe("mob tokenizer", () => {
     const document = getMob1Document()
     expect(JSON.stringify(document.readValues())).toBe(fixtureData("mob-1-output.txt"))
   })
+
+  it("should tokenize the second fixture file", () => {
+    const document = getMob2Document()
+    expect(JSON.stringify(document.readValues())).toBe(fixtureData("mob-2-output.txt"))
+  })
 })
 
 describe("object tokenizer", () => {
@@ -91,6 +96,11 @@ function getMob1Document() {
     getMobSchema()])
 }
 
+function getMob2Document() {
+  return new Document(fixtureData("mob-2.txt"), [
+    getMobSchema()])
+}
+
 function getRoom1Document() {
   return new Document(fixtureData("room-1.txt"), [
     getRoomSchema()])
@@ -121,7 +131,7 @@ function getAreaSchema() {
     new SingleContentToken("details"),
     new DiscreetValue("startRoomId"),
     new DiscreetValue("endRoomId"),
-  ], false)
+  ], false, "")
 }
 
 function getObjectSchema() {
@@ -156,7 +166,7 @@ function getObjectSchema() {
       new DiscreetValue("modifier"),
       new DiscreetValue("bitVector"),
     ]).identifiedBy("F"),
-  ], true)
+  ], true, "S\n")
 }
 
 function getMobSchema() {
@@ -201,7 +211,7 @@ function getMobSchema() {
       new DiscreetValue("flag"),
       new DiscreetValue("value"),
     ]).identifiedBy("F"),
-  ], true)
+  ], true, "")
 }
 
 function getRoomSchema() {
@@ -243,5 +253,5 @@ function getRoomSchema() {
     new SubsectionToken("clan", [
       new DiscreetValue("clan"),
     ]).identifiedBy("C"),
-  ], true)
+  ], true, "S\n")
 }

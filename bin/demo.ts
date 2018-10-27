@@ -22,7 +22,7 @@ const document = new Document(
       new SingleContentToken("details"),
       new DiscreetValue("startRoomId"),
       new DiscreetValue("endRoomId"),
-    ], false),
+    ], false, "S\n"),
     new Section(SECTION_2_NAME, new SectionHeader(), [
       new Identifier(),
       new SingleContentToken("type"),
@@ -63,7 +63,7 @@ const document = new Document(
         new DiscreetValue("name"),
         new DiscreetValue("flag"),
       ]).identifiedBy("F"),
-    ], true),
+    ], true, ""),
     new Section(SECTION_3_NAME, new SectionHeader(), [
       new Identifier(),
       new SingleContentToken("name"),
@@ -78,7 +78,7 @@ const document = new Document(
       new DiscreetValue("weight"),
       new DiscreetValue("cost"),
       new DiscreetValue("condition"),
-    ], true),
+    ], true, "S\n"),
     new Section(SECTION_4_NAME, new SectionHeader(), [
       new Identifier(),
       new SingleContentToken("title"),
@@ -111,7 +111,7 @@ const document = new Document(
       new SubsectionToken("clan", [
         new DiscreetValue("clan"),
       ]).identifiedBy("C"),
-    ], true),
+    ], true, "S\n"),
   ])
 
 // document.readValues()
