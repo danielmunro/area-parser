@@ -9,10 +9,10 @@ import CharacterValue from "../src/token/characterValue"
 import LineToken from "../src/token/lineToken"
 import SubsectionToken from "../src/token/subsectionToken"
 
-const SECTION_1_NAME = "area"
-const SECTION_2_NAME = "mobiles"
-const SECTION_3_NAME = "objects"
-const SECTION_4_NAME = "rooms"
+const SECTION_AREA = "area"
+const SECTION_MOBILES = "mobiles"
+const SECTION_OBJECTS = "objects"
+const SECTION_ROOMS = "rooms"
 
 const FIXTURES = "./integration-tests/fixtures"
 
@@ -67,7 +67,7 @@ describe("area tokenizer", () => {
 })
 //
 // describe("whole test file", () => {
-//   it("should be able to tokenize the test file", () => {
+//   it("I accidentally the whole file", () => {
 //     const document = getDocument()
 //     const nodes = document.readValues()
 //     console.log(JSON.stringify(nodes))
@@ -125,7 +125,7 @@ function getDocument() {
 }
 
 function getAreaSchema() {
-  return new Section(SECTION_1_NAME, new SectionHeader(), [
+  return new Section(SECTION_AREA, new SectionHeader(), [
     new SingleContentToken("header"),
     new SingleContentToken("name"),
     new SingleContentToken("details"),
@@ -135,7 +135,7 @@ function getAreaSchema() {
 }
 
 function getObjectSchema() {
-  return new Section(SECTION_3_NAME, new SectionHeader(), [
+  return new Section(SECTION_OBJECTS, new SectionHeader(), [
     new Identifier(),
     new SingleContentToken("name"),
     new SingleContentToken("brief"),
@@ -170,7 +170,7 @@ function getObjectSchema() {
 }
 
 function getMobSchema() {
-  return new Section(SECTION_2_NAME, new SectionHeader(), [
+  return new Section(SECTION_MOBILES, new SectionHeader(), [
     new Identifier(),
     new SingleContentToken("type"),
     new SingleContentToken("name"),
@@ -215,7 +215,7 @@ function getMobSchema() {
 }
 
 function getRoomSchema() {
-  return new Section(SECTION_4_NAME, new SectionHeader(), [
+  return new Section(SECTION_ROOMS, new SectionHeader(), [
     new Identifier(),
     new SingleContentToken("title"),
     new SingleContentToken("description"),

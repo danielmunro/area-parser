@@ -61,8 +61,7 @@ export default class Section {
     const startDelimiter = token.getStartDelimiter()
     let end = data.indexOf(endDelimiter, this.position)
     if (end === -1) {
-      console.error(`missing end "${endDelimiter}", ${token.constructor.name} in section ${this.name}`)
-      return []
+      throw new Error(`missing end "${endDelimiter}", ${token.constructor.name} in section ${this.name}`)
     }
     if (end === this.position) {
       end = end + 1 - Math.min(endDelimiter.length, 1)

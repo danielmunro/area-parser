@@ -5,7 +5,9 @@ export default class Document {
   private position: number = 0
   private readonly documentLength: number
 
-  constructor(public readonly rawData: string, public readonly sections: Section[]) {
+  constructor(
+    public readonly rawData: string,
+    public readonly sections: Section[]) {
     this.documentLength = this.rawData.length
   }
 
@@ -25,11 +27,11 @@ export default class Document {
   private repeatableSection(section: Section): Node[] {
     const sections = []
     while (this.position < this.documentLength) {
-      if (this.rawData.substring(this.position, this.position + 2) === "#0") {
+      try {
+        sections.push(...this.parseSection(section))
+      } catch (error) {
         return sections
       }
-      const element = this.parseSection(section)
-      sections.push(...element)
       this.position += section.getPosition()
     }
     return sections
