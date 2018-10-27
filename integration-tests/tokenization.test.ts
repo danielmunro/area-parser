@@ -69,31 +69,40 @@ describe("area tokenizer", () => {
 describe("multiple section tokenizer", () => {
   it("should tokenize a collection of sections", () => {
     const document = getMultiple1Document()
-    // console.log(JSON.stringify(document.readValues()))
     expect(JSON.stringify(document.readValues())).toBe(fixtureData("multiple-1-output.txt"))
+  })
+
+  it("should tokenize a collection of sections", () => {
+    const document = getMultiple2Document()
+    expect(JSON.stringify(document.readValues())).toBe(fixtureData("multiple-2-output.txt"))
   })
 })
 
-//
-// describe("whole test file", () => {
-//   it.only("I accidentally the whole file", () => {
-//     const document = getDocument()
-//     const nodes = document.readValues()
-//     // console.log(JSON.stringify(nodes))
-//
-//     nodes.forEach(node => {
-//       const data = JSON.stringify(node)
-//       // console.log("data", data)
-//       expect(data).not.toContain("~")
-//       expect(data).not.toContain("#")
-//     })
-//   })
-// })
+describe("whole test file", () => {
+  it("I accidentally the whole file", () => {
+    const document = getDocument()
+    const nodes = document.readValues()
+    // console.log(JSON.stringify(nodes))
+
+    nodes.forEach(node => {
+      const data = JSON.stringify(node)
+      // console.log("data", data)
+      expect(data).not.toContain("~")
+      expect(data).not.toContain("#")
+    })
+  })
+})
 
 function getMultiple1Document() {
   return new Document(fixtureData("multiple-1.txt"), [
     getAreaSchema(),
     getMobSchema()])
+}
+
+function getMultiple2Document() {
+  return new Document(fixtureData("multiple-2.txt"), [
+    getMobSchema(),
+    getObjectSchema()])
 }
 
 function getArea1Document() {
@@ -146,7 +155,7 @@ function getAreaSchema() {
     new SingleContentToken("details"),
     new DiscreetValue("startRoomId"),
     new DiscreetValue("endRoomId"),
-  ], false, "")
+  ], false, "", "")
 }
 
 function getObjectSchema() {
@@ -181,7 +190,7 @@ function getObjectSchema() {
       new DiscreetValue("modifier"),
       new DiscreetValue("bitVector"),
     ]).identifiedBy("F"),
-  ], true, "S\n")
+  ], true, "S\n", "#0")
 }
 
 function getMobSchema() {
@@ -226,7 +235,7 @@ function getMobSchema() {
       new DiscreetValue("flag"),
       new DiscreetValue("value"),
     ]).identifiedBy("F"),
-  ], true, "")
+  ], true, "", "#0")
 }
 
 function getRoomSchema() {
@@ -268,5 +277,5 @@ function getRoomSchema() {
     new SubsectionToken("clan", [
       new DiscreetValue("clan"),
     ]).identifiedBy("C"),
-  ], true, "S\n")
+  ], true, "S\n", "#0")
 }

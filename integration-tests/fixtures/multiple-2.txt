@@ -1,0 +1,30 @@
+#MOBILES
+#3163
+thief~
+the thief~
+A thief, all dressed in black.
+~
+Well COUNT your money!
+~
+human~
+(null)~
+(null)~
+(null)~
+ACHS PQ -100 0
+30 1 6d8+400 1d1+99 4d5+5 stab
+2 4 3 7
+EFJN 0 0 0
+stand stand either 100
+0 0 medium 0
+#0
+
+#OBJECTS
+#3000
+barrel beer~
+a barrel of beer~
+A beer barrel has been left here.~
+wood~
+drink 0 A
+300 300 'beer' 0 0
+0 160 75 P
+#0

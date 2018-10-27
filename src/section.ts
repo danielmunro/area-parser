@@ -13,7 +13,8 @@ export default class Section {
     public readonly header: Token,
     public readonly tokens: Token[],
     public readonly isRepeatable: boolean,
-    public readonly endDelimiter: string) {}
+    public readonly endDelimiter: string,
+    public readonly endRepeatDelimiter: string) {}
 
   public getNodes(data: string, position: number): Node[] {
     this.position = position
@@ -41,9 +42,11 @@ export default class Section {
   private parseSubsection(token, data) {
     const nodes = []
     while (this.getNextPart(data).indexOf(token.getStartDelimiter()) === 0) {
-      token.tokens.forEach(subsectionToken => {
-        nodes.push(...this.parseToken(subsectionToken, data))
-      })
+      token.tokens.forEach(subsectionToken =>
+        nodes.push(...this.parseToken(subsectionToken, data)))
+    }
+    if (this.getNextPart(data) === this.endRepeatDelimiter) {
+      this.position += this.endRepeatDelimiter.length
     }
     return nodes
   }
