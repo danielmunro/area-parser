@@ -42,6 +42,9 @@ export default class Section {
   private parseSubsection(token, data) {
     const nodes = []
     while (this.getNextPart(data).indexOf(token.getStartDelimiter()) === 0) {
+      if (data.substring(this.position, this.position + 2) === "#0") {
+        return nodes
+      }
       token.tokens.forEach(subsectionToken =>
         nodes.push(...this.parseToken(subsectionToken, data)))
     }

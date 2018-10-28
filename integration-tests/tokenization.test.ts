@@ -22,19 +22,19 @@ function fixtureData(file) {
 
 describe("rooms", () => {
   it("should load room one", () => {
-    const document = getRoom1Document()
+    const document = getRoomDocument(1)
     const nodes = document.readValues()
     expect(JSON.stringify(nodes)).toBe(fixtureData("room-1-output.txt"))
   })
 
   it("should load room two fixtures", () => {
-    const document = getRoom2Document()
+    const document = getRoomDocument(2)
     const nodes = document.readValues()
     expect(JSON.stringify(nodes)).toBe(fixtureData("room-2-output.txt"))
   })
 
   it("should load the third room fixture file", () => {
-    const document = getRoom3Document()
+    const document = getRoomDocument(3)
     const nodes = document.readValues()
     expect(JSON.stringify(nodes)).toBe(fixtureData("room-3-output.txt"))
   })
@@ -57,6 +57,12 @@ describe("object tokenizer", () => {
     const document = getObject1Document()
     expect(JSON.stringify(document.readValues())).toBe(fixtureData("object-1-output.txt"))
   })
+
+  it("should tokenize the first fixture file", () => {
+    const document = getObject2Document()
+    // console.log(JSON.stringify(document.readValues()))
+    expect(JSON.stringify(document.readValues())).toBe(fixtureData("object-2-output.txt"))
+  })
 })
 
 describe("area tokenizer", () => {
@@ -77,21 +83,22 @@ describe("multiple section tokenizer", () => {
     expect(JSON.stringify(document.readValues())).toBe(fixtureData("multiple-2-output.txt"))
   })
 
-  it("should tokenize a larger collection of sections", () => {
-    const document = getMultiple3Document()
-    expect(JSON.stringify(document.readValues())).toBe(fixtureData("multiple-3-output.txt"))
-  })
+  // it("should tokenize a larger collection of sections", () => {
+  //   const document = getMultiple3Document()
+  //   console.log(JSON.stringify(document.readValues()))
+  //   // expect(JSON.stringify(document.readValues())).toBe(fixtureData("multiple-3-output.txt"))
+  // })
 })
-//
+
 // describe("whole test file", () => {
-//   it("I accidentally the whole file", () => {
+//   it.only("I accidentally the whole file", () => {
 //     const document = getDocument()
 //     const nodes = document.readValues()
 //     // console.log(JSON.stringify(nodes))
 //
-//     nodes.forEach(node => {
+//     nodes.forEach((node, i) => {
 //       const data = JSON.stringify(node)
-//       // console.log("data", data)
+//       // console.log(`at index ${i}, data: ${data}`)
 //       expect(data).not.toContain("~")
 //       expect(data).not.toContain("#")
 //     })
@@ -127,6 +134,11 @@ function getObject1Document() {
     getObjectSchema()])
 }
 
+function getObject2Document() {
+  return new Document(fixtureData("object-2.txt"), [
+    getObjectSchema()])
+}
+
 function getMob1Document() {
   return new Document(fixtureData("mob-1.txt"), [
     getMobSchema()])
@@ -137,18 +149,8 @@ function getMob2Document() {
     getMobSchema()])
 }
 
-function getRoom1Document() {
-  return new Document(fixtureData("room-1.txt"), [
-    getRoomSchema()])
-}
-
-function getRoom2Document() {
-  return new Document(readFileSync("./integration-tests/fixtures/room-2.txt").toString(), [
-    getRoomSchema()])
-}
-
-function getRoom3Document() {
-  return new Document(readFileSync("./integration-tests/fixtures/room-3.txt").toString(), [
+function getRoomDocument(testNumber: number) {
+  return new Document(fixtureData(`room-${testNumber}.txt`).toString(), [
     getRoomSchema()])
 }
 
@@ -202,7 +204,7 @@ function getObjectSchema() {
       new DiscreetValue("modifier"),
       new DiscreetValue("bitVector"),
     ]).identifiedBy("F"),
-  ], true, "S\n", "#0")
+  ], true, "", "#0")
 }
 
 function getMobSchema() {

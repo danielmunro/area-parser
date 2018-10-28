@@ -27,6 +27,9 @@ export default class Document {
   private repeatableSection(section: Section): Node[] {
     const sections = []
     while (this.position < this.documentLength) {
+      if (this.rawData.substring(this.position, this.position + 2) === "#0") {
+        return sections
+      }
       try {
         sections.push(...this.parseSection(section))
       } catch (error) {

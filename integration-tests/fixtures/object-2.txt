@@ -1,0 +1,26 @@
+#OBJECTS
+#3000
+barrel beer~
+a barrel of beer~
+A beer barrel has been left here.~
+wood~
+drink 0 A
+300 300 'beer' 0 0
+0 160 75 P
+#3001
+bottle beer~
+a bottle of beer~
+A beer bottle has been left here.~
+glass~
+drink 0 A
+16 16 'beer' 0 0
+0 10 5 P
+#3002
+bottle ale~
+a bottle of ale~
+A dark bottle of ale has been left here.~
+glass~
+drink 0 A
+16 16 'ale' 0 0
+0 20 6 P
+#0
