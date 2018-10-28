@@ -21,6 +21,7 @@ export default class Section {
     const nodes = []
     if (this.first) {
       nodes.push(this.parseToken(this.header, data))
+      this.first = false
     }
     this.tokens.forEach(token => {
       if (token instanceof SubsectionToken) {
@@ -30,8 +31,6 @@ export default class Section {
       const createdNodes = this.parseToken(token, data)
       nodes.push(...createdNodes)
     })
-    this.first = false
-    this.position += this.endDelimiter.length
     return nodes
   }
 
@@ -41,17 +40,16 @@ export default class Section {
 
   private parseSubsection(token, data) {
     const nodes = []
-    while (this.getNextPart(data).indexOf(token.getStartDelimiter()) === 0) {
-      if (data.substring(this.position, this.position + 2) === "#0") {
-        return nodes
-      }
+    while (this.shouldContinueSubsectionTokenization(token, data)) {
       token.tokens.forEach(subsectionToken =>
         nodes.push(...this.parseToken(subsectionToken, data)))
     }
-    if (this.getNextPart(data) === this.endRepeatDelimiter) {
-      this.position += this.endRepeatDelimiter.length
-    }
     return nodes
+  }
+
+  private shouldContinueSubsectionTokenization(token, data) {
+    const nextPart = this.getNextPart(data)
+    return nextPart.indexOf(token.getStartDelimiter()) === 0 && nextPart !== this.endRepeatDelimiter
   }
 
   private getNextPart(data: string) {
@@ -81,9 +79,7 @@ export default class Section {
     }
     const newPos = end + endDelimiter.length
     const startDelimiter = token.getStartDelimiter()
-    const value = data.substring(
-      data.indexOf(startDelimiter, this.position) + startDelimiter.length,
-      end).trim()
+    const value = data.substring(this.position + startDelimiter.length, end).trim()
     nodes.push(new Node(token, value))
     this.position = newPos
     if (token.isRepeatable() && this.isNextToken(token, data)) {

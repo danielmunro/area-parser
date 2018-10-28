@@ -41,26 +41,25 @@ describe("rooms", () => {
 })
 
 describe("mob tokenizer", () => {
-  it("should tokenize the first fixture file", () => {
+  it("should tokenize the first mob fixture file", () => {
     const document = getMob1Document()
     expect(JSON.stringify(document.readValues())).toBe(fixtureData("mob-1-output.txt"))
   })
 
-  it("should tokenize the second fixture file", () => {
+  it("should tokenize the second mob fixture file", () => {
     const document = getMob2Document()
     expect(JSON.stringify(document.readValues())).toBe(fixtureData("mob-2-output.txt"))
   })
 })
 
 describe("object tokenizer", () => {
-  it("should tokenize the first fixture file", () => {
+  it("should tokenize the first object fixture file", () => {
     const document = getObject1Document()
     expect(JSON.stringify(document.readValues())).toBe(fixtureData("object-1-output.txt"))
   })
 
-  it("should tokenize the first fixture file", () => {
+  it("should tokenize the second object fixture file", () => {
     const document = getObject2Document()
-    // console.log(JSON.stringify(document.readValues()))
     expect(JSON.stringify(document.readValues())).toBe(fixtureData("object-2-output.txt"))
   })
 })
@@ -83,11 +82,10 @@ describe("multiple section tokenizer", () => {
     expect(JSON.stringify(document.readValues())).toBe(fixtureData("multiple-2-output.txt"))
   })
 
-  // it("should tokenize a larger collection of sections", () => {
-  //   const document = getMultiple3Document()
-  //   console.log(JSON.stringify(document.readValues()))
-  //   // expect(JSON.stringify(document.readValues())).toBe(fixtureData("multiple-3-output.txt"))
-  // })
+  it("should tokenize a larger collection of sections", () => {
+    const document = getMultiple3Document()
+    expect(JSON.stringify(document.readValues())).toBe(fixtureData("multiple-3-output.txt"))
+  })
 })
 
 // describe("whole test file", () => {
