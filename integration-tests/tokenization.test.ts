@@ -21,22 +21,12 @@ function fixtureData(file) {
 }
 
 describe("rooms", () => {
-  it("should load room one", () => {
-    const document = getRoomDocument(1)
+  it.each([
+    1, 2, 3, 4,
+  ])("should load room fixture file %s", iteration => {
+    const document = getRoomDocument(iteration)
     const nodes = document.readValues()
-    expect(JSON.stringify(nodes)).toBe(fixtureData("room-1-output.txt"))
-  })
-
-  it("should load room two fixtures", () => {
-    const document = getRoomDocument(2)
-    const nodes = document.readValues()
-    expect(JSON.stringify(nodes)).toBe(fixtureData("room-2-output.txt"))
-  })
-
-  it("should load the third room fixture file", () => {
-    const document = getRoomDocument(3)
-    const nodes = document.readValues()
-    expect(JSON.stringify(nodes)).toBe(fixtureData("room-3-output.txt"))
+    expect(JSON.stringify(nodes)).toBe(fixtureData(`room-${iteration}-output.txt`))
   })
 })
 
@@ -93,11 +83,10 @@ describe("multiple section tokenizer", () => {
   })
 })
 
-describe.skip("whole test file", () => {
+describe("whole test file", () => {
   it("I accidentally the whole file", () => {
     const document = getDocument()
     const nodes = document.readValues()
-    // console.log(JSON.stringify(nodes))
 
     nodes.forEach((node, i) => {
       const data = JSON.stringify(node)
@@ -267,7 +256,7 @@ function getRoomSchema() {
     ]).identifiedBy("M"),
     new SubsectionToken("other", [
       new DiscreetValue("otherFlag"),
-      new DiscreetValue("value"),
+      new SingleContentToken("value"),
     ]).identifiedBy("O"),
     new SubsectionToken("doors", [
       new DiscreetValue("door"),
