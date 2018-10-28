@@ -31,31 +31,20 @@ describe("rooms", () => {
 })
 
 describe("mob tokenizer", () => {
-  it("should tokenize the first mob fixture file", () => {
-    const document = getMob1Document()
-    expect(JSON.stringify(document.readValues())).toBe(fixtureData("mob-1-output.txt"))
-  })
-
-  it("should tokenize the second mob fixture file", () => {
-    const document = getMob2Document()
-    expect(JSON.stringify(document.readValues())).toBe(fixtureData("mob-2-output.txt"))
+  it.each([
+    1, 2,
+  ])("should tokenize mob fixture file %s", iteration => {
+    const document = getMobDocument(iteration)
+    expect(JSON.stringify(document.readValues())).toBe(fixtureData(`mob-${iteration}-output.txt`))
   })
 })
 
 describe("object tokenizer", () => {
-  it("should tokenize the first object fixture file", () => {
-    const document = getObjectDocument(1)
-    expect(JSON.stringify(document.readValues())).toBe(fixtureData("object-1-output.txt"))
-  })
-
-  it("should tokenize the second object fixture file", () => {
-    const document = getObjectDocument(2)
-    expect(JSON.stringify(document.readValues())).toBe(fixtureData("object-2-output.txt"))
-  })
-
-  it("should tokenize objects with multiple extra flags", () => {
-    const document = getObjectDocument(3)
-    expect(JSON.stringify(document.readValues())).toBe(fixtureData("object-3-output.txt"))
+  it.each([
+    1, 2, 3,
+  ])("should tokenize object fixture file %s", iteration => {
+    const document = getObjectDocument(iteration)
+    expect(JSON.stringify(document.readValues())).toBe(fixtureData(`object-${iteration}-output.txt`))
   })
 })
 
@@ -125,13 +114,8 @@ function getObjectDocument(documentNumber: number) {
     getObjectSchema()])
 }
 
-function getMob1Document() {
-  return new Document(fixtureData("mob-1.txt"), [
-    getMobSchema()])
-}
-
-function getMob2Document() {
-  return new Document(fixtureData("mob-2.txt"), [
+function getMobDocument(documentNumber: number) {
+  return new Document(fixtureData(`mob-${documentNumber}.txt`), [
     getMobSchema()])
 }
 
