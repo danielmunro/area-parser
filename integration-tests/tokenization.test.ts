@@ -54,13 +54,18 @@ describe("mob tokenizer", () => {
 
 describe("object tokenizer", () => {
   it("should tokenize the first object fixture file", () => {
-    const document = getObject1Document()
+    const document = getObjectDocument(1)
     expect(JSON.stringify(document.readValues())).toBe(fixtureData("object-1-output.txt"))
   })
 
   it("should tokenize the second object fixture file", () => {
-    const document = getObject2Document()
+    const document = getObjectDocument(2)
     expect(JSON.stringify(document.readValues())).toBe(fixtureData("object-2-output.txt"))
+  })
+
+  it("should tokenize objects with multiple extra flags", () => {
+    const document = getObjectDocument(3)
+    expect(JSON.stringify(document.readValues())).toBe(fixtureData("object-3-output.txt"))
   })
 })
 
@@ -88,20 +93,19 @@ describe("multiple section tokenizer", () => {
   })
 })
 
-// describe("whole test file", () => {
-//   it.only("I accidentally the whole file", () => {
-//     const document = getDocument()
-//     const nodes = document.readValues()
-//     // console.log(JSON.stringify(nodes))
-//
-//     nodes.forEach((node, i) => {
-//       const data = JSON.stringify(node)
-//       // console.log(`at index ${i}, data: ${data}`)
-//       expect(data).not.toContain("~")
-//       expect(data).not.toContain("#")
-//     })
-//   })
-// })
+describe.skip("whole test file", () => {
+  it("I accidentally the whole file", () => {
+    const document = getDocument()
+    const nodes = document.readValues()
+    // console.log(JSON.stringify(nodes))
+
+    nodes.forEach((node, i) => {
+      const data = JSON.stringify(node)
+      expect(data).not.toContain("~")
+      expect(data).not.toContain("#")
+    })
+  })
+})
 
 function getMultiple1Document() {
   return new Document(fixtureData("multiple-1.txt"), [
@@ -127,13 +131,8 @@ function getArea1Document() {
     getAreaSchema()])
 }
 
-function getObject1Document() {
-  return new Document(fixtureData("object-1.txt"), [
-    getObjectSchema()])
-}
-
-function getObject2Document() {
-  return new Document(fixtureData("object-2.txt"), [
+function getObjectDocument(documentNumber: number) {
+  return new Document(fixtureData(`object-${documentNumber}.txt`), [
     getObjectSchema()])
 }
 

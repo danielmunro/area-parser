@@ -17,7 +17,7 @@ export default class SubsectionToken implements Token {
   }
 
   public isRepeatable(): boolean {
-    return false
+    return true
   }
 
   public getEndRepeatDelimiters(): string[] {

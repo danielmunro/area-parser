@@ -1,0 +1,20 @@
+#OBJECTS
+#3031
+lantern~
+a hooded brass lantern~
+A hooded brass lantern has been left here.~
+brass~
+light 0 A
+0 0 250 0 0
+0 40 75 P
+E
+lantern~
+It is a large and robust but somewhat battered oil lantern made from brass,
+equipped with a handle to make it handy and a hood to protect its flame.
+Some letters have been scratched on its bottom.
+~
+E
+letters~
+They say, "Use 'hold lantern' to activate."
+~
+#0
