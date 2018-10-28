@@ -32,9 +32,8 @@ export default class Document {
       } catch (error) {
         return sections
       }
-      this.position = section.getPosition()
-      const next = this.rawData.substring(this.position, this.position + section.endRepeatDelimiter.length)
-      this.position += 2
+      this.position = section.getPosition() + section.endRepeatDelimiter.length
+      const next = this.rawData.substring(section.getPosition(), this.position)
       if (next === section.endRepeatDelimiter) {
         break
       }
