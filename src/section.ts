@@ -52,14 +52,14 @@ export default class Section {
     return nextPart.indexOf(token.getStartDelimiter()) === 0 && nextPart !== this.endRepeatDelimiter
   }
 
-  private proceedToNextValue() {
+  private proceedToNextNonWhitespaceValue() {
     while (Section.endCursor.indexOf(this.data[this.position]) > -1) {
       this.position++
     }
   }
 
   private getNextPart() {
-    this.proceedToNextValue()
+    this.proceedToNextNonWhitespaceValue()
     let end = this.data.indexOf("\n", this.position)
     if (end === -1) {
       end = this.data.length
@@ -73,7 +73,7 @@ export default class Section {
 
   private parseToken(token: Token): Node[] {
     // setup
-    this.proceedToNextValue()
+    this.proceedToNextNonWhitespaceValue()
     const nodes = []
     const endDelimiter = this.getEndDelimiter(token)
     const end = this.calculateEndDelimiterPosition(token, endDelimiter)
