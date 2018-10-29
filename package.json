@@ -7,7 +7,7 @@
     "demo": "ts-node --no-cache bin/demo.ts",
     "lint": "tslint --project ."
   },
-  "repository": "https://github.com/danielmunro/nodesrv",
+  "repository": "https://github.com/danielmunro/area-parser",
   "keywords": [],
   "author": "Dan Munro",
   "license": "CC0-1.0",
