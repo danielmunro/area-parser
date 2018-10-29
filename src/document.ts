@@ -15,7 +15,7 @@ export default class Document {
     const sections = []
     this.sections.forEach(section => {
       if (section.isRepeatable) {
-        sections.push(...this.repeatableSection(section))
+        sections.push(...this.readRepeatableSection(section))
         return
       }
       sections.push(this.parseSection(section))
@@ -24,7 +24,7 @@ export default class Document {
     return sections
   }
 
-  private repeatableSection(section: Section): Node[] {
+  private readRepeatableSection(section: Section): Node[] {
     const sections = []
     while (this.position < this.documentLength) {
       try {
@@ -33,8 +33,7 @@ export default class Document {
         return sections
       }
       this.position = section.getPosition() + section.endRepeatDelimiter.length
-      const next = this.rawData.substring(section.getPosition(), this.position)
-      if (next === section.endRepeatDelimiter) {
+      if (this.rawData.substring(section.getPosition(), this.position) === section.endRepeatDelimiter) {
         break
       }
     }
