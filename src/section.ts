@@ -1,5 +1,4 @@
 import Node from "./node"
-import CharacterValue from "./token/characterValue"
 import SubsectionToken from "./token/subsectionToken"
 import Token from "./token/token"
 
