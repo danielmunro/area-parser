@@ -24,7 +24,6 @@
     "@types/node": "^10.12.0"
   },
   "jest": {
-    "testURL": "http://localhost",
     "transform": {
       "^.+\\.ts?$": "ts-jest"
     },
@@ -36,9 +35,8 @@
     "collectCoverageFrom": [
       "**/*.ts",
       "!**/node_modules/**",
-      "!**/vendor/**",
       "!**/bin/**",
-      "!**/fixture/**"
+      "!**/fixtures/**"
     ]
   }
 }
