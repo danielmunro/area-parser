@@ -13,7 +13,6 @@ export default class Section {
     public readonly header: Token,
     public readonly tokens: Token[],
     public readonly isRepeatable: boolean,
-    public readonly endDelimiter: string,
     public readonly endRepeatDelimiter: string) {}
 
   public getNodes(data: string, position: number): Node[] {
@@ -72,8 +71,9 @@ export default class Section {
   }
 
   private parseToken(token: Token, data: string): Node[] {
-    const nodes = []
+    // setup
     this.proceedToNextValue(data)
+    const nodes = []
     const endDelimiter = this.getEndDelimiter(token, data)
     let end = data.indexOf(endDelimiter, this.position)
     if (end === -1) {
@@ -82,11 +82,15 @@ export default class Section {
     if (end === this.position) {
       end = end + 1 - Math.min(endDelimiter.length, 1)
     }
-    const newPos = end + endDelimiter.length
-    const startDelimiter = token.getStartDelimiter()
-    const value = data.substring(this.position + startDelimiter.length, end).trim()
-    nodes.push(new Node(token, value))
-    this.position = newPos
+
+    // add new node
+    nodes.push(
+      new Node(token, data.substring(this.position + token.getStartDelimiter().length, end).trim()))
+
+    // increment cursor
+    this.position = end + endDelimiter.length
+
+    // recurse if called for
     if (token.isRepeatable() && this.isNextToken(token, data)) {
       nodes.push(...this.parseToken(token, data))
     }
@@ -95,17 +99,15 @@ export default class Section {
   }
 
   private getEndDelimiter(token: Token, data: string) {
-    const endpos = token
-      .getEndDelimiters()
-      .sort((a, b) => this.compare(data, a, b))
-    return endpos[0]
+    return this.getDelimiter(token.getEndDelimiters(), data)
   }
 
   private getEndRepeatDelimiter(token: Token, data: string) {
-    const endpos = token
-      .getEndRepeatDelimiters()
-      .sort((a, b) => this.compare(data, a, b))
-    return endpos[0]
+    return this.getDelimiter(token.getEndRepeatDelimiters(), data)
+  }
+
+  private getDelimiter(delimiters: string[], data: string) {
+    return (delimiters.sort((a, b) => this.compare(data, a, b)))[0]
   }
 
   private compare(data, a: string, b: string) {

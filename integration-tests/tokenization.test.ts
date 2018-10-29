@@ -164,7 +164,7 @@ function getAreaSchema() {
     new SingleContentToken("details"),
     new DiscreetValue("startRoomId"),
     new DiscreetValue("endRoomId"),
-  ], false, "", "")
+  ], false, "")
 }
 
 function getObjectSchema() {
@@ -199,7 +199,7 @@ function getObjectSchema() {
       new DiscreetValue("modifier"),
       new DiscreetValue("bitVector"),
     ]).identifiedBy("F"),
-  ], true, "", "#0")
+  ], true, "#0")
 }
 
 function getMobSchema() {
@@ -244,7 +244,7 @@ function getMobSchema() {
       new DiscreetValue("flag"),
       new DiscreetValue("value"),
     ]).identifiedBy("F"),
-  ], true, "", "#0")
+  ], true, "#0")
 }
 
 function getRoomSchema() {
@@ -286,5 +286,5 @@ function getRoomSchema() {
     new SubsectionToken("clan", [
       new DiscreetValue("clan"),
     ]).identifiedBy("C"),
-  ], true, "S\n", "#0")
+  ], true, "#0")
 }
