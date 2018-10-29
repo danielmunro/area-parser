@@ -1,7 +1,7 @@
-import Token from "./token/token"
 import Node from "./node"
 import CharacterValue from "./token/characterValue"
 import SubsectionToken from "./token/subsectionToken"
+import Token from "./token/token"
 
 export default class Section {
   private static readonly endCursor = [" ", "\n"]
