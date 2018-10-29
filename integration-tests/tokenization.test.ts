@@ -73,11 +73,36 @@ describe("multiple section tokenizer", () => {
 })
 
 describe("whole test file", () => {
-  it("I accidentally the whole file", () => {
-    const document = getDocument()
+  it.each([
+    "air",
+    // "alagastr",
+    // "alucard",
+    "anarchy2",
+    "arachnos",
+    // "arrakis",
+    "astral",
+    // "aztec",
+    // "banshee",
+    // "bloodmoo",
+    "canyon",
+    "chapel",
+    "daisy",
+    "bluet",
+    // "bunion",
+    "elenar",
+    "galaxy",
+    "gnome",
+    "grave",
+    "grove",
+    // "hoan",
+    "matook",
+    "midgaard",
+    // "moira",
+  ])("should tokenize %s.are", file => {
+    const document = getSourceDocument(file)
     const nodes = document.readValues()
 
-    nodes.forEach((node, i) => {
+    nodes.forEach(node => {
       const data = JSON.stringify(node)
       expect(data).not.toContain("~")
       expect(data).not.toContain("#")
@@ -124,8 +149,8 @@ function getRoomDocument(testNumber: number) {
     getRoomSchema()])
 }
 
-function getDocument() {
-  return new Document(readFileSync("./areas/midgaard.are").toString(), [
+function getSourceDocument(document: string) {
+  return new Document(fixtureData(`areas/${document}.are`).toString(), [
     getAreaSchema(),
     getMobSchema(),
     getObjectSchema(),
