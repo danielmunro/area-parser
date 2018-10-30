@@ -59,9 +59,9 @@ export default class Section {
 
   private getNextPart() {
     this.proceedToNextNonWhitespaceValue()
-    let end = this.data.indexOf("\n", this.position)
+    const end = this.data.indexOf("\n", this.position)
     if (end === -1) {
-      end = this.data.length
+      return this.data.substring(this.position)
     }
     return this.data.substring(this.position, end)
   }
