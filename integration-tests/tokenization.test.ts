@@ -92,7 +92,7 @@ describe("whole test file", () => {
     const document = getSourceDocument(file)
     const nodes = document.readValues()
     expect(nodes.length).toBe(4)
-    
+
     nodes.forEach(node => {
       const data = JSON.stringify(node)
       expect(data).not.toContain("~")
