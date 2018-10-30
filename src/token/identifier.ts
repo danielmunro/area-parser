@@ -1,7 +1,7 @@
 import Token from "./token"
 
 export default class Identifier implements Token {
-  constructor(public readonly identifier: string = null) {}
+  constructor(public readonly identifier: string = "id") {}
 
   public getStartDelimiter(): string {
     return "#"
