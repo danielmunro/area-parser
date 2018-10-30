@@ -12,16 +12,16 @@ export default class Document {
   }
 
   public readValues(): Node[] {
-    const sections = []
+    const nodes = []
     this.sections.forEach(section => {
       if (section.isRepeatable) {
-        sections.push(...this.readRepeatableSection(section))
+        nodes.push(...this.readRepeatableSection(section))
         return
       }
-      sections.push(this.parseSection(section))
+      nodes.push(this.parseSection(section))
       this.position += section.getPosition()
     })
-    return sections
+    return nodes
   }
 
   private readRepeatableSection(section: Section): Node[] {
