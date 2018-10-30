@@ -38,7 +38,7 @@ export default class Document {
       try {
         sections.push(...this.parseSection(section))
       } catch (error) {
-        return sections
+        break
       }
       this.position = section.getPosition() + section.endRepeatDelimiter.length
       if (this.rawData.substring(section.getPosition(), this.position) === section.endRepeatDelimiter) {
