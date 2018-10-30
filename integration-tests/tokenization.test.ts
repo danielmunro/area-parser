@@ -91,7 +91,8 @@ describe("whole test file", () => {
   ])("should tokenize %s.are", file => {
     const document = getSourceDocument(file)
     const nodes = document.readValues()
-
+    expect(nodes.length).toBe(4)
+    
     nodes.forEach(node => {
       const data = JSON.stringify(node)
       expect(data).not.toContain("~")
