@@ -20,7 +20,7 @@ export default class Section {
     this.position = position
     const nodes = []
     if (this.first) {
-      nodes.push(this.parseToken(this.header))
+      nodes.push(...this.parseToken(this.header))
       this.first = false
     }
     this.tokens.forEach(token => {

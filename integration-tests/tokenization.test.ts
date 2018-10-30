@@ -24,9 +24,8 @@ describe("rooms", () => {
   it.each([
     1, 2, 3, 4,
   ])("should load room fixture file %s", iteration => {
-    const document = getRoomDocument(iteration)
-    const nodes = document.readValues()
-    expect(JSON.stringify(nodes)).toBe(fixtureData(`room-${iteration}-output.txt`))
+    expect(JSON.stringify(getRoomDocument(iteration).readValues()))
+      .toBe(fixtureData(`room-${iteration}-output.txt`))
   })
 })
 
@@ -34,8 +33,8 @@ describe("mob tokenizer", () => {
   it.each([
     1, 2,
   ])("should tokenize mob fixture file %s", iteration => {
-    const document = getMobDocument(iteration)
-    expect(JSON.stringify(document.readValues())).toBe(fixtureData(`mob-${iteration}-output.txt`))
+    expect(JSON.stringify(getMobDocument(iteration).readValues()))
+      .toBe(fixtureData(`mob-${iteration}-output.txt`))
   })
 })
 
@@ -43,32 +42,32 @@ describe("object tokenizer", () => {
   it.each([
     1, 2, 3,
   ])("should tokenize object fixture file %s", iteration => {
-    const document = getObjectDocument(iteration)
-    expect(JSON.stringify(document.readValues())).toBe(fixtureData(`object-${iteration}-output.txt`))
+    expect(JSON.stringify(getObjectDocument(iteration).readValues()))
+      .toBe(fixtureData(`object-${iteration}-output.txt`))
   })
 })
 
 describe("area tokenizer", () => {
   it("should tokenize an area header", () => {
-    const document = getArea1Document()
-    expect(JSON.stringify(document.readValues())).toBe(fixtureData("area-1-output.txt"))
+    expect(JSON.stringify(getArea1Document().readValues()))
+      .toBe(fixtureData("area-1-output.txt"))
   })
 })
 
 describe("multiple section tokenizer", () => {
   it("should tokenize a small collection of sections", () => {
-    const document = getMultiple1Document()
-    expect(JSON.stringify(document.readValues())).toBe(fixtureData("multiple-1-output.txt"))
+    expect(JSON.stringify(getMultiple1Document().readValues()))
+      .toBe(fixtureData("multiple-1-output.txt"))
   })
 
   it("should tokenize another small collection of sections", () => {
-    const document = getMultiple2Document()
-    expect(JSON.stringify(document.readValues())).toBe(fixtureData("multiple-2-output.txt"))
+    expect(JSON.stringify(getMultiple2Document().readValues()))
+      .toBe(fixtureData("multiple-2-output.txt"))
   })
 
   it("should tokenize a larger collection of sections", () => {
-    const document = getMultiple3Document()
-    expect(JSON.stringify(document.readValues())).toBe(fixtureData("multiple-3-output.txt"))
+    expect(JSON.stringify(getMultiple3Document().readValues()))
+      .toBe(fixtureData("multiple-3-output.txt"))
   })
 })
 
@@ -159,7 +158,7 @@ function getSourceDocument(document: string) {
 
 function getAreaSchema() {
   return new Section(SECTION_AREA, new SectionHeader(), [
-    new SingleContentToken("header"),
+    new SingleContentToken("file"),
     new SingleContentToken("name"),
     new SingleContentToken("details"),
     new DiscreetValue("startRoomId"),

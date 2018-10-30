@@ -11,17 +11,25 @@ export default class Document {
     this.documentLength = this.rawData.length
   }
 
-  public readValues(): Node[] {
-    const nodes = []
-    this.sections.forEach(section => {
+  public readValues() {
+    return this.sections.map(section => {
+      const element = []
       if (section.isRepeatable) {
-        nodes.push(...this.readRepeatableSection(section))
-        return
+        element.push(...this.readRepeatableSection(section))
+        return element.map(this.mapToResult)
       }
-      nodes.push(this.parseSection(section))
+      element.push(...this.parseSection(section))
       this.position += section.getPosition()
+
+      return element.map(this.mapToResult)
     })
-    return nodes
+  }
+
+  private mapToResult(element) {
+    const result = {}
+    result[element.token.identifier] = element.parsedValue
+
+    return result
   }
 
   private readRepeatableSection(section: Section): Node[] {

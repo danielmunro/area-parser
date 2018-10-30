@@ -1,1 +1,1 @@
-[[[{"token":{"identifier":"header"},"parsedValue":"AREA"}],{"token":{"identifier":"header"},"parsedValue":"/mud/moosehead/area/midgaard.are"},{"token":{"identifier":"name"},"parsedValue":"Midgaard"},{"token":{"identifier":"details"},"parsedValue":"{ All } Diku    Midgaard"},{"token":{"identifier":"startRoomId"},"parsedValue":"3000"},{"token":{"identifier":"endRoomId"},"parsedValue":"3378"}]]
+[[{"header":"AREA"},{"file":"/mud/moosehead/area/midgaard.are"},{"name":"Midgaard"},{"details":"{ All } Diku    Midgaard"},{"startRoomId":"3000"},{"endRoomId":"3378"}]]
