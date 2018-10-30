@@ -2,6 +2,13 @@ import Node from "./node"
 import Section from "./section"
 
 export default class Document {
+  private static mapToResult(element) {
+    const result = {}
+    result[element.token.identifier] = element.parsedValue
+
+    return result
+  }
+
   private position: number = 0
   private readonly documentLength: number
 
@@ -16,20 +23,13 @@ export default class Document {
       const element = []
       if (section.isRepeatable) {
         element.push(...this.readRepeatableSection(section))
-        return element.map(this.mapToResult)
+        return element.map(Document.mapToResult)
       }
       element.push(...this.parseSection(section))
       this.position += section.getPosition()
 
-      return element.map(this.mapToResult)
+      return element.map(Document.mapToResult)
     })
-  }
-
-  private mapToResult(element) {
-    const result = {}
-    result[element.token.identifier] = element.parsedValue
-
-    return result
   }
 
   private readRepeatableSection(section: Section): Node[] {
