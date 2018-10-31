@@ -33,33 +33,10 @@ export default class Section {
     return this.position
   }
 
-  private parseSubsection(token) {
-    const nodes = []
-    while (this.shouldContinueSubsectionTokenization(token)) {
-      token.tokens.forEach(subsectionToken =>
-        nodes.push(...this.parseToken(subsectionToken)))
-    }
-    return nodes
-  }
-
-  private shouldContinueSubsectionTokenization(token) {
-    const nextPart = this.getNextPart()
-    return nextPart.indexOf(token.getStartDelimiter()) === 0 && nextPart !== this.endRepeatDelimiter
-  }
-
   private proceedToNextNonWhitespaceValue() {
     while (Section.endCursor.indexOf(this.data[this.position]) > -1) {
       this.position++
     }
-  }
-
-  private getNextPart() {
-    this.proceedToNextNonWhitespaceValue()
-    const end = this.data.indexOf("\n", this.position)
-    if (end === -1) {
-      return this.data.substring(this.position)
-    }
-    return this.data.substring(this.position, end)
   }
 
   private throwTokenizeEndDelimiterError(token: Token, endDelimiter: string) {
@@ -85,6 +62,15 @@ export default class Section {
       nodes.push(...this.parseToken(token))
     }
 
+    return nodes
+  }
+
+  private parseSubsection(token) {
+    const nodes = []
+    while (this.shouldContinueSubsectionTokenization(token)) {
+      token.tokens.forEach(subsectionToken =>
+        nodes.push(...this.parseToken(subsectionToken)))
+    }
     return nodes
   }
 
@@ -130,5 +116,19 @@ export default class Section {
 
   private isStillTokenizing(token: Token): boolean {
     return this.data.indexOf(this.getEndRepeatDelimiter(token), this.position) > this.position
+  }
+
+  private shouldContinueSubsectionTokenization(token) {
+    const nextPart = this.getNextPart()
+    return nextPart.indexOf(token.getStartDelimiter()) === 0 && nextPart !== this.endRepeatDelimiter
+  }
+
+  private getNextPart() {
+    this.proceedToNextNonWhitespaceValue()
+    const end = this.data.indexOf("\n", this.position)
+    if (end === -1) {
+      return this.data.substring(this.position)
+    }
+    return this.data.substring(this.position, end)
   }
 }
