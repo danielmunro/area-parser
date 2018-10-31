@@ -19,17 +19,19 @@ export default class Document {
   }
 
   public readValues() {
-    return this.sections.map(section => {
-      const element = []
-      if (section.isRepeatable) {
-        element.push(...this.readRepeatableSection(section))
-        return element.map(Document.mapToResult)
-      }
-      element.push(...this.parseSection(section))
-      this.position += section.getPosition()
+    return this.sections.map(this.createElementFromSection.bind(this))
+  }
 
+  private createElementFromSection(section: Section) {
+    const element = []
+    if (section.isRepeatable) {
+      element.push(...this.readRepeatableSection(section))
       return element.map(Document.mapToResult)
-    })
+    }
+    element.push(...this.parseSection(section))
+    this.position += section.getPosition()
+
+    return element.map(Document.mapToResult)
   }
 
   private readRepeatableSection(section: Section): Node[] {
@@ -41,11 +43,15 @@ export default class Document {
         break
       }
       this.position = section.getPosition() + section.endRepeatDelimiter.length
-      if (this.rawData.substring(section.getPosition(), this.position) === section.endRepeatDelimiter) {
+      if (this.isAtEndRepeatDelimiter(section)) {
         break
       }
     }
     return sections
+  }
+
+  private isAtEndRepeatDelimiter(section: Section): boolean {
+    return this.rawData.substring(section.getPosition(), this.position) === section.endRepeatDelimiter
   }
 
   private parseSection(section): Node[] {
