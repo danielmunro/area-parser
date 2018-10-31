@@ -15,6 +15,7 @@ export default function getRoomSchema() {
     new DiscreetValue("areaNumber"),
     new CharacterValue("roomFlags"),
     new DiscreetValue("sectorType"),
+  ], [
     new SubsectionToken("healing", [
       new DiscreetValue("healingFlag"),
       new DiscreetValue("healingRate"),

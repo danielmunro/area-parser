@@ -22,6 +22,7 @@ export default function getObjectSchema() {
     new DiscreetValue("weight"),
     new DiscreetValue("cost"),
     new DiscreetValue("condition"),
+  ], [
     new SubsectionToken("affects", [
       new DiscreetValue("affectFlag"),
       new DiscreetValue("location"),

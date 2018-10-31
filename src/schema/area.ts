@@ -11,5 +11,5 @@ export default function getAreaSchema() {
     new SingleContentToken("details"),
     new DiscreetValue("startRoomId"),
     new DiscreetValue("endRoomId"),
-  ], false, "")
+  ], [], false, "")
 }

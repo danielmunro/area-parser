@@ -12,6 +12,7 @@ export default class Section {
     public readonly name: string,
     public readonly header: Token,
     public readonly tokens: Token[],
+    public readonly subsectionTokens: SubsectionToken[],
     public readonly isRepeatable: boolean,
     public readonly endRepeatDelimiter: string) {}
 
@@ -23,13 +24,8 @@ export default class Section {
       nodes.push(...this.parseToken(this.header))
       this.first = false
     }
-    this.tokens.forEach(token => {
-      if (token instanceof SubsectionToken) {
-        nodes.push(...this.parseSubsection(token))
-        return
-      }
-      nodes.push(...this.parseToken(token))
-    })
+    this.tokens.forEach(token => nodes.push(...this.parseToken(token)))
+    this.subsectionTokens.forEach(token => nodes.push(...this.parseSubsection(token)))
     return nodes
   }
 

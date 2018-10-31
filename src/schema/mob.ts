@@ -44,6 +44,7 @@ export default function getMobSchema() {
     new CharacterValue("parts"),
     new DiscreetValue("size"),
     new DiscreetValue("material"),
+  ], [
     new SubsectionToken("flags", [
       new DiscreetValue("name"),
       new DiscreetValue("flag"),
