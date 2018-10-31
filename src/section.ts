@@ -25,7 +25,14 @@ export default class Section {
       this.first = false
     }
     this.tokens.forEach(token => nodes.push(...this.parseToken(token)))
-    this.subsectionTokens.forEach(token => nodes.push(...this.parseSubsection(token)))
+    let proceeding = true
+    while (proceeding) {
+      const pos = this.position
+      this.subsectionTokens.forEach(token => nodes.push(...this.parseSubsection(token)))
+      if (pos === this.position) {
+        proceeding = false
+      }
+    }
     return nodes
   }
 
