@@ -1,11 +1,11 @@
+import { SECTION_MOBILES } from "../constants"
 import Section from "../section"
-import SectionHeader from "../token/sectionHeader"
-import Identifier from "../token/identifier"
-import SingleContentToken from "../token/singleContentToken"
 import CharacterValue from "../token/characterValue"
 import DiscreetValue from "../token/discreetValue"
+import Identifier from "../token/identifier"
+import SectionHeader from "../token/sectionHeader"
+import SingleContentToken from "../token/singleContentToken"
 import SubsectionToken from "../token/subsectionToken"
-import { SECTION_MOBILES } from "../constants"
 
 export default function getMobSchema() {
   return new Section(SECTION_MOBILES, new SectionHeader(), [

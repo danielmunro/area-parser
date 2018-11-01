@@ -1,10 +1,10 @@
-import Section from "../section"
 import { SECTION_OBJECTS } from "../constants"
-import SectionHeader from "../token/sectionHeader"
-import Identifier from "../token/identifier"
-import SingleContentToken from "../token/singleContentToken"
+import Section from "../section"
 import DiscreetValue from "../token/discreetValue"
+import Identifier from "../token/identifier"
 import LineToken from "../token/lineToken"
+import SectionHeader from "../token/sectionHeader"
+import SingleContentToken from "../token/singleContentToken"
 import SubsectionToken from "../token/subsectionToken"
 
 export default function getObjectSchema() {

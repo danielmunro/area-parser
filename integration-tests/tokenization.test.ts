@@ -1,7 +1,7 @@
 import { readFileSync } from "fs"
 import Document from "../src/document"
-import getMobSchema from "../src/schema/mob"
 import getAreaSchema from "../src/schema/area"
+import getMobSchema from "../src/schema/mob"
 import getObjectSchema from "../src/schema/object"
 import getRoomSchema from "../src/schema/room"
 
@@ -62,101 +62,13 @@ describe("multiple section tokenizer", () => {
   })
 })
 
+function getAreaList(): string[] {
+  return readFileSync("./integration-tests/fixtures/areas/area-passing.lst").toString().trim().split("\n")
+
+}
+
 describe("whole test file", () => {
-  it.each([
-    "air",
-    "alagastr",
-    "alucard",
-    "anarchy2",
-    "arachnos",
-    "arrakis",
-    "astral",
-    // "aztec",
-    "balance",
-    "banshee",
-    "bloodmoo",
-    // "cace",
-    "canyon",
-    "catacomb",
-    "chapel",
-    "circle2",
-    "daisy",
-    "bluet",
-    "bunion",
-    "daycare",
-    "dream",
-    "drow",
-    "dwarven",
-    "dylan",
-    "earend1",
-    "eastern",
-    "ecl",
-    "elenar",
-    "elfprint",
-    // "firestrm",
-    "forbid",
-    "galaxy",
-    "gnome",
-    "grave",
-    "grove",
-    "guido",
-    "gypcam",
-    "handel",
-    "haon",
-    "hitower",
-    "hood",
-    // "immort",
-    "johnwa",
-    "khicaves",
-    "khira2",
-    // "limbo1",
-    // "limp",
-    "lostcat",
-    "luria3",
-    "lycan",
-    "macleod",
-    // "magiclan",
-    "mahntor",
-    // "mandrake",
-    "marsh",
-    "matook",
-    "mega1",
-    "melynda",
-    "midennir",
-    "midgaard",
-    "mirror",
-    // "mobfact",
-    "moria",
-    "newbb",
-    "newthalos",
-    "nirvana",
-    "nobody",
-    "nova",
-    // "ofcol",
-    "olympus",
-    "plains",
-    "pyramid",
-    "redferne",
-    // "rhood",
-    "satin",
-    "school",
-    "scint",
-    "sewer",
-    "shire",
-    "smurf",
-    // "sri",
-    "tallt",
-    "thalos",
-    "themes",
-    // "tohell",
-    "trollden",
-    "valley",
-    "whore",
-    "windr",
-    "wyvern",
-    "wyvriver",
-    "yukon",
-  ])("should tokenize %s.are", file => {
+  it.each(getAreaList())("should tokenize %s", file => {
     const document = getSourceDocument(file)
     const nodes = document.readValues()
     expect(nodes.length).toBe(4)
@@ -209,7 +121,7 @@ function getRoomDocument(testNumber: number) {
 }
 
 function getSourceDocument(document: string) {
-  return new Document(fixtureData(`areas/${document}.are`).toString(), [
+  return new Document(fixtureData(document).toString(), [
     getAreaSchema(),
     getMobSchema(),
     getObjectSchema(),

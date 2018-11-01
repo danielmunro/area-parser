@@ -1,8 +1,8 @@
-import Section from "../section"
 import { SECTION_AREA } from "../constants"
+import Section from "../section"
+import DiscreetValue from "../token/discreetValue"
 import SectionHeader from "../token/sectionHeader"
 import SingleContentToken from "../token/singleContentToken"
-import DiscreetValue from "../token/discreetValue"
 
 export default function getAreaSchema() {
   return new Section(SECTION_AREA, new SectionHeader(), [

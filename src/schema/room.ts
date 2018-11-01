@@ -1,10 +1,10 @@
-import Section from "../section"
 import { SECTION_ROOMS } from "../constants"
-import SectionHeader from "../token/sectionHeader"
-import Identifier from "../token/identifier"
-import SingleContentToken from "../token/singleContentToken"
-import DiscreetValue from "../token/discreetValue"
+import Section from "../section"
 import CharacterValue from "../token/characterValue"
+import DiscreetValue from "../token/discreetValue"
+import Identifier from "../token/identifier"
+import SectionHeader from "../token/sectionHeader"
+import SingleContentToken from "../token/singleContentToken"
 import SubsectionToken from "../token/subsectionToken"
 
 export default function getRoomSchema() {
