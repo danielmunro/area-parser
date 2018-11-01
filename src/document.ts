@@ -42,8 +42,9 @@ export default class Document {
       } catch (error) {
         break
       }
-      this.position = section.getPosition() + section.endRepeatDelimiter.length
+      this.position = section.getPosition()
       if (this.isAtEndRepeatDelimiter(section)) {
+        this.position += section.endRepeatDelimiter.length
         break
       }
     }
@@ -51,7 +52,9 @@ export default class Document {
   }
 
   private isAtEndRepeatDelimiter(section: Section): boolean {
-    return this.rawData.substring(section.getPosition(), this.position) === section.endRepeatDelimiter
+    return this.rawData.substring(
+      this.position,
+      this.position + section.endRepeatDelimiter.length) === section.endRepeatDelimiter
   }
 
   private parseSection(section): Node[] {

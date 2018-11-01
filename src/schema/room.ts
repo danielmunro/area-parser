@@ -47,5 +47,8 @@ export default function getRoomSchema() {
     new SubsectionToken("clan", [
       new DiscreetValue("clan"),
     ]).identifiedBy("C"),
+    new SubsectionToken("stop", [
+      new DiscreetValue("stop"),
+    ]).identifiedBy("S"),
   ], true, "#0")
 }

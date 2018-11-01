@@ -61,11 +61,3 @@ glass~
 drink 0 A
 16 16 'beer' 0 0
 0 10 5 P
-#3001
-bottle beer~
-a bottle of beer~
-A beer bottle has been left here.~
-glass~
-drink 0 A
-16 16 'beer' 0 0
-0 10 5 P
