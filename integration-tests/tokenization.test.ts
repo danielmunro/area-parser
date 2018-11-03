@@ -3,6 +3,7 @@ import Document from "../src/document"
 import getAreaSchema from "../src/schema/area"
 import getMobSchema from "../src/schema/mob"
 import getObjectSchema from "../src/schema/object"
+import getPrimarySource from "../src/schema/primarySource"
 import getRoomSchema from "../src/schema/room"
 
 const FIXTURES = "./integration-tests/fixtures"
@@ -121,9 +122,5 @@ function getRoomDocument(testNumber: number) {
 }
 
 function getSourceDocument(document: string) {
-  return new Document(fixtureData(document).toString(), [
-    getAreaSchema(),
-    getMobSchema(),
-    getObjectSchema(),
-    getRoomSchema()])
+  return new Document(fixtureData(document).toString(), [...getPrimarySource()])
 }
