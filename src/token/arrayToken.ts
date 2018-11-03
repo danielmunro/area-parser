@@ -1,6 +1,6 @@
 import Token from "./token"
 
-export default class DiscreetValue implements Token {
+export default class ArrayToken implements Token {
   constructor(public readonly identifier: string = null) {}
 
   public getStartDelimiter(): string {
@@ -8,14 +8,14 @@ export default class DiscreetValue implements Token {
   }
 
   public getEndDelimiters(): string[] {
-    return [" ", "\n", "\t"]
+    return [" ", "\t"]
   }
 
   public isRepeatable(): boolean {
-    return false
+    return true
   }
 
   public getEndRepeatDelimiters(): string[] {
-    return []
+    return ["*"]
   }
 }

@@ -1,0 +1,7 @@
+#RESETS
+M 0 3011   1 3001  1	* Hassan
+E 1 3005  -1   16	*   Hassan's scimitar
+M 0 3021   1 3002  1	* the guildmaster
+M 0 3043   1 3003  1	* the waiter
+G 1 3002  -1     	*   a bottle of ale
+0
