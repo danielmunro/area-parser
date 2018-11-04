@@ -1,8 +1,8 @@
 import getAreaSchema from "./area"
 import getMobSchema from "./mob"
 import getObjectSchema from "./object"
-import getRoomSchema from "./room"
 import getResetSchema from "./reset"
+import getRoomSchema from "./room"
 
 export default function getPrimarySource() {
   return [

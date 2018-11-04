@@ -83,7 +83,7 @@ describe("whole test file", () => {
     expect(nodes.length).toBe(5)
 
     nodes.forEach(node => {
-      const data = JSON.stringify(node["values"])
+      const data = JSON.stringify(node.values)
       expect(data).not.toContain("~")
       expect(data).not.toContain("#")
     })
