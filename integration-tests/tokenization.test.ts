@@ -6,6 +6,7 @@ import getObjectSchema from "../src/schema/object"
 import getPrimarySource from "../src/schema/primarySource"
 import getResetSchema from "../src/schema/reset"
 import getRoomSchema from "../src/schema/room"
+import getSpecialSchema from "../src/schema/special"
 
 const FIXTURES = "./integration-tests/fixtures"
 
@@ -51,6 +52,14 @@ describe("reset tokenizer", () => {
   it("should tokenize a reset file", () => {
     expect(JSON.stringify(getResetDocument().readValues()))
       .toBe(fixtureData("reset-output.txt"))
+  })
+})
+
+
+describe("special tokenizer", () => {
+  it("should tokenize a special file", () => {
+    expect(JSON.stringify(getSpecialDocument().readValues()))
+      .toBe(fixtureData("special-output.txt"))
   })
 })
 
@@ -107,7 +116,8 @@ function getMultiple3Document() {
     getAreaSchema(),
     getMobSchema(),
     getObjectSchema(),
-    getResetSchema()])
+    getResetSchema(),
+    getSpecialSchema()])
 }
 
 function getArea1Document() {
@@ -118,6 +128,11 @@ function getArea1Document() {
 function getResetDocument() {
   return new Document(fixtureData("reset.txt"), [
     getResetSchema()])
+}
+
+function getSpecialDocument() {
+  return new Document(fixtureData("special.txt"), [
+    getSpecialSchema()])
 }
 
 function getObjectDocument(documentNumber: number) {

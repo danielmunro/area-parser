@@ -71,3 +71,16 @@ M 0 3400   8 3441  2	* the bony skeleton
 E 1 3421  15   16	*   a rusty curved scimitar
 M 0 3400   8 3430  2	* the bony skeleton
 S
+
+#SPECIALS
+M 3024 spec_cast_mage      	* the sorcerer
+M 3028 spec_executioner    	* Loki
+M 3029 spec_executioner    	* Thor
+M 3030 spec_executioner    	* Hel
+M 3034 spec_salesman       	* Sales Manney
+M 3035 spec_jabber         	* the cityguard
+M 3036 spec_jabber         	* The deadhauler
+M 3037 spec_honor_guard    	* a beta-version Honor guard
+M 3039 spec_guard_l        	* The city executioner
+M 3042 spec_cast_mage      	* the waiter
+S

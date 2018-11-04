@@ -1,0 +1,12 @@
+#SPECIALS
+M 3000 spec_cast_mage      	* the wizard
+M 3005 spec_thief          	* the thief
+M 3011 spec_executioner    	* Hassan
+M 3012 spec_cast_adept     	* the healer
+M 3013 spec_breath_any     	* Chadeech the guardian
+M 3015 spec_fido           	* the yltsaeb odif
+M 3016 spec_breath_any     	* Chadeech the guardian
+M 3019 spec_executioner    	* Frey
+M 3020 spec_cast_mage      	* the guildmaster
+M 3021 spec_cast_cleric    	* the guildmaster
+S
