@@ -3,7 +3,8 @@ import getMobSchema from "./mob"
 import getObjectSchema from "./object"
 import getResetSchema from "./reset"
 import getRoomSchema from "./room"
-// import getSpecialSchema from "./special"
+import getShopSchema from "./shop"
+import getSpecialSchema from "./special"
 
 export default function getPrimarySource() {
   return [
@@ -13,5 +14,6 @@ export default function getPrimarySource() {
     getRoomSchema(),
     // getResetSchema(),
     // getSpecialSchema(),
+    // getShopSchema(),
   ]
 }
