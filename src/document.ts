@@ -2,9 +2,9 @@ import Node from "./node"
 import Section from "./section"
 
 export default class Document {
-  private static mapToResult(element) {
+  private static mapToResult(elements) {
     const result = {}
-    result[element.token.identifier] = element.parsedValue
+    elements.forEach(element => result[element.token.identifier] = element.parsedValue)
 
     return result
   }
@@ -23,22 +23,23 @@ export default class Document {
   }
 
   private createElementFromSection(section: Section) {
-    const element = []
+    const element = { section, values: [] }
     if (section.isRepeatable) {
-      element.push(...this.readRepeatableSection(section))
-      return element.map(Document.mapToResult)
+      element.values.push(...this.readRepeatableSection(section))
+      return element
     }
-    element.push(...this.parseSection(section))
+    element.values.push(this.parseSection(section))
     this.position += section.getPosition()
+    element.values = element.values.map(Document.mapToResult)
 
-    return element.map(Document.mapToResult)
+    return element
   }
 
-  private readRepeatableSection(section: Section): Node[] {
+  private readRepeatableSection(section: Section) {
     const sections = []
     while (this.position < this.documentLength) {
       try {
-        sections.push(...this.parseSection(section))
+        sections.push(this.parseSection(section))
       } catch (error) {
         break
       }
@@ -48,7 +49,7 @@ export default class Document {
         break
       }
     }
-    return sections
+    return sections.map(Document.mapToResult)
   }
 
   private isAtEndRepeatDelimiter(section: Section): boolean {
