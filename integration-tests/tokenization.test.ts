@@ -80,7 +80,7 @@ describe("whole test file", () => {
   it.each(getAreaList())("should tokenize %s", file => {
     const document = getSourceDocument(file)
     const nodes = document.readValues()
-    expect(nodes.length).toBe(4)
+    expect(nodes.length).toBe(5)
 
     nodes.forEach(node => {
       const data = JSON.stringify(node)
@@ -106,7 +106,8 @@ function getMultiple3Document() {
   return new Document(fixtureData("multiple-3.txt"), [
     getAreaSchema(),
     getMobSchema(),
-    getObjectSchema()])
+    getObjectSchema(),
+    getResetSchema()])
 }
 
 function getArea1Document() {

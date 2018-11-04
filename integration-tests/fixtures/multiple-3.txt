@@ -61,3 +61,13 @@ glass~
 drink 0 A
 16 16 'beer' 0 0
 0 10 5 P
+#0
+
+#RESETS
+M 0 3405   1 3405  1	* the priest
+G 1 3430  99     	*   a silver key
+O 0 3400   1 3405	* a candlestick
+M 0 3400   8 3441  2	* the bony skeleton
+E 1 3421  15   16	*   a rusty curved scimitar
+M 0 3400   8 3430  2	* the bony skeleton
+S

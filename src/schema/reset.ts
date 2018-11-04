@@ -11,5 +11,5 @@ export default function getResetSchema() {
     new DiscreetValue("throwaway"),
     new ArrayToken("args"),
     new LineToken("comment"),
-  ], [], true, "0")
+  ], [], true, "S")
 }
