@@ -1,6 +1,6 @@
+import Element from "./element"
 import Node from "./node"
 import Section from "./section"
-import Element from "./element"
 
 export default class Document {
   private static mapToResult(elements) {
