@@ -1,5 +1,6 @@
 import Node from "./node"
 import Section from "./section"
+import Element from "./element"
 
 export default class Document {
   private static mapToResult(elements) {
@@ -18,21 +19,20 @@ export default class Document {
     this.documentLength = this.rawData.length
   }
 
-  public readValues() {
+  public readValues(): Element[] {
     return this.sections.map(this.createElementFromSection.bind(this))
   }
 
   private createElementFromSection(section: Section) {
-    const element = { section, values: [] }
+    const values = []
     if (section.isRepeatable) {
-      element.values.push(...this.readRepeatableSection(section))
-      return element
+      values.push(...this.readRepeatableSection(section))
+      return new Element(section, values)
     }
-    element.values.push(this.parseSection(section))
+    values.push(this.parseSection(section))
     this.position += section.getPosition()
-    element.values = element.values.map(Document.mapToResult)
 
-    return element
+    return new Element(section, values.map(Document.mapToResult))
   }
 
   private readRepeatableSection(section: Section) {

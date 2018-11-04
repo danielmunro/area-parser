@@ -79,11 +79,11 @@ function getAreaList(): string[] {
 describe("whole test file", () => {
   it.each(getAreaList())("should tokenize %s", file => {
     const document = getSourceDocument(file)
-    const nodes = document.readValues()
-    expect(nodes.length).toBe(5)
+    const elements = document.readValues()
+    expect(elements.length).toBe(5)
 
-    nodes.forEach(node => {
-      const data = JSON.stringify(node["values"])
+    elements.forEach(element => {
+      const data = JSON.stringify(element.values)
       expect(data).not.toContain("~")
       expect(data).not.toContain("#")
     })
