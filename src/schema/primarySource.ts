@@ -11,7 +11,7 @@ export default function getPrimarySource() {
     getMobSchema(),
     getObjectSchema(),
     getRoomSchema(),
-    getResetSchema(),
+    // getResetSchema(),
     // getSpecialSchema(),
   ]
 }

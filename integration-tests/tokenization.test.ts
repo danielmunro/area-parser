@@ -7,6 +7,7 @@ import getPrimarySource from "../src/schema/primarySource"
 import getResetSchema from "../src/schema/reset"
 import getRoomSchema from "../src/schema/room"
 import getSpecialSchema from "../src/schema/special"
+import getShopSchema from "../src/schema/shop"
 
 const FIXTURES = "./integration-tests/fixtures"
 
@@ -55,11 +56,17 @@ describe("reset tokenizer", () => {
   })
 })
 
-
 describe("special tokenizer", () => {
   it("should tokenize a special file", () => {
     expect(JSON.stringify(getSpecialDocument().readValues()))
       .toBe(fixtureData("special-output.txt"))
+  })
+})
+
+describe("shop tokenizer", () => {
+  it("should tokenize a shop file", () => {
+    expect(JSON.stringify(getShopDocument().readValues()))
+      .toBe(fixtureData("shop-output.txt"))
   })
 })
 
@@ -117,7 +124,8 @@ function getMultiple3Document() {
     getMobSchema(),
     getObjectSchema(),
     getResetSchema(),
-    getSpecialSchema()])
+    getSpecialSchema(),
+  ])
 }
 
 function getArea1Document() {
@@ -152,4 +160,9 @@ function getRoomDocument(testNumber: number) {
 
 function getSourceDocument(document: string) {
   return new Document(fixtureData(document).toString(), [...getPrimarySource()])
+}
+
+function getShopDocument() {
+  return new Document(fixtureData("shop.txt").toString(), [
+    getShopSchema()])
 }

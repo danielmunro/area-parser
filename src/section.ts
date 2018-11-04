@@ -3,7 +3,7 @@ import SubsectionToken from "./token/subsectionToken"
 import Token from "./token/token"
 
 export default class Section {
-  private static readonly endCursor = [" ", "\n"]
+  private static readonly endCursor = [" ", "\n", "\t"]
   private position: number
   private first = true
   private data: string

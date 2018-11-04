@@ -9,7 +9,7 @@ export default function getSpecialSchema() {
   return new Section(SECTION_SPECIALS, new SectionHeader(), [
     new DiscreetValue("command"),
     new DiscreetValue("id"),
-    new ArrayToken("special"),
+    new DiscreetValue("special"),
     new LineToken("comment"),
   ], [], true, "S")
 }

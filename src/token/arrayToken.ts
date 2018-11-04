@@ -16,6 +16,7 @@ export default class ArrayToken implements Token {
   }
 
   public getEndRepeatDelimiters(): string[] {
-    return ["*"]
+    return ["*", "\t"]
+    // return ["*"]
   }
 }

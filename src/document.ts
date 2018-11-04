@@ -5,7 +5,17 @@ import Section from "./section"
 export default class Document {
   private static mapToResult(elements) {
     const result = {}
-    elements.forEach(element => result[element.token.identifier] = element.parsedValue)
+    elements.forEach(element => {
+      const i = element.token.identifier
+      if (result[i]) {
+        if (typeof result[i] === "string") {
+          result[i] = [result[i]]
+        }
+        result[i].push(element.parsedValue)
+        return
+      }
+      result[i] = element.parsedValue
+    })
 
     return result
   }
