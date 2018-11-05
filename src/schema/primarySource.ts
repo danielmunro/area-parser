@@ -13,7 +13,7 @@ export default function getPrimarySource() {
     getObjectSchema(),
     getRoomSchema(),
     getResetSchema(),
-    // getSpecialSchema(),
-    // getShopSchema(),
+    getShopSchema(),
+    getSpecialSchema(),
   ]
 }

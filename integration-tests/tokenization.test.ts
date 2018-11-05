@@ -6,8 +6,8 @@ import getObjectSchema from "../src/schema/object"
 import getPrimarySource from "../src/schema/primarySource"
 import getResetSchema from "../src/schema/reset"
 import getRoomSchema from "../src/schema/room"
-import getSpecialSchema from "../src/schema/special"
 import getShopSchema from "../src/schema/shop"
+import getSpecialSchema from "../src/schema/special"
 
 const FIXTURES = "./integration-tests/fixtures"
 
@@ -96,7 +96,7 @@ describe("whole test file", () => {
   it.each(getAreaList())("should tokenize %s", file => {
     const document = getSourceDocument(file)
     const elements = document.readValues()
-    // expect(elements.length).toBe(7)
+    expect(elements.length).toBe(7)
 
     elements.forEach(element => {
       const data = JSON.stringify(element.values)

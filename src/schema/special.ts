@@ -1,6 +1,5 @@
 import { SECTION_SPECIALS } from "../constants"
 import Section from "../section"
-import ArrayToken from "../token/arrayToken"
 import DiscreetValue from "../token/discreetValue"
 import LineToken from "../token/lineToken"
 import SectionHeader from "../token/sectionHeader"

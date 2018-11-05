@@ -24,6 +24,9 @@ export default class Section {
       nodes.push(...this.parseToken(this.header))
       this.first = false
     }
+    if (this.isAtSectionEndRepeatDelimiter()) {
+      return nodes
+    }
     this.tokens.forEach(token => nodes.push(...this.parseToken(token)))
     let proceeding = true
     while (proceeding) {
@@ -38,6 +41,11 @@ export default class Section {
 
   public getPosition(): number {
     return this.position
+  }
+
+  private isAtSectionEndRepeatDelimiter(): boolean {
+    return this.isRepeatable &&
+      this.data.substring(this.position, this.position + this.endRepeatDelimiter.length) === this.endRepeatDelimiter
   }
 
   private proceedToNextNonWhitespaceValue() {
@@ -84,7 +92,6 @@ export default class Section {
   private calculateEndDelimiterPosition(token: Token, endDelimiter: string): number {
     const end = this.data.indexOf(endDelimiter, this.position)
 
-    // sanity checks
     if (end === -1) {
       this.throwTokenizeEndDelimiterError(token, endDelimiter)
     }
