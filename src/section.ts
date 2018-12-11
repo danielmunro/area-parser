@@ -66,8 +66,11 @@ export default class Section {
     const end = this.calculateEndDelimiterPosition(token, endDelimiter)
 
     // add new node
-    nodes.push(
-      new Node(token, this.data.substring(this.position + token.getStartDelimiter().length, end).trim()))
+    const node = new Node(token, this.data.substring(this.position + token.getStartDelimiter().length, end).trim())
+    if (token.getEndRepeatDelimiters().indexOf(node.parsedValue) > -1) {
+      return nodes
+    }
+    nodes.push(node)
 
     // increment cursor
     this.position = end + endDelimiter.length
@@ -91,7 +94,6 @@ export default class Section {
 
   private calculateEndDelimiterPosition(token: Token, endDelimiter: string): number {
     const end = this.data.indexOf(endDelimiter, this.position)
-
     if (end === -1) {
       this.throwTokenizeEndDelimiterError(token, endDelimiter)
     }
@@ -125,7 +127,13 @@ export default class Section {
       return -1
     }
 
-    return posA - posB
+    if (posA > posB) {
+      return 1
+    }
+    if (posA < posB) {
+      return -1
+    }
+    return 0
   }
 
   private isStillTokenizing(token: Token): boolean {
