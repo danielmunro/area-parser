@@ -45,7 +45,7 @@ export default function getRoomSchema() {
       new DiscreetValue("target"),
     ]).identifiedBy("B"),
     new SubsectionToken("clan", [
-      new DiscreetValue("clan"),
+      new SingleContentToken("clan"),
     ]).identifiedBy("C"),
     new SubsectionToken("stop", [
       new DiscreetValue("stop"),
