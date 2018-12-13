@@ -46,9 +46,9 @@ export default function getMobSchema() {
     new DiscreetValue("material"),
   ], [
     new SubsectionToken("flags", [
-      new DiscreetValue("name"),
-      new DiscreetValue("flag"),
-      new DiscreetValue("value"),
+      new DiscreetValue("flagName"),
+      new DiscreetValue("flagType"),
+      new DiscreetValue("flagValue"),
     ]).identifiedBy("F"),
   ], true, "#0")
 }

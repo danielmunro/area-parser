@@ -1,6 +1,7 @@
 import Node from "./node"
 import SubsectionToken from "./token/subsectionToken"
 import Token from "./token/token"
+import v4 = require("uuid/v4")
 
 export default class Section {
   private static readonly endCursor = [" ", "\n", "\t"]
@@ -83,12 +84,20 @@ export default class Section {
     return nodes
   }
 
-  private parseSubsection(token) {
+  private parseSubsection(token): Node[] {
     const nodes = []
     while (this.shouldContinueSubsectionTokenization(token)) {
-      token.tokens.forEach(subsectionToken =>
-        nodes.push(...this.parseToken(subsectionToken)))
+      const id = v4()
+      token.tokens.forEach(subsectionToken => {
+        const parsedNodes = this.parseToken(subsectionToken)
+        parsedNodes.forEach(parsedNode => {
+          parsedNode.setElementId(id)
+          parsedNode.setSubsectionToken(token)
+        })
+        nodes.push(...parsedNodes)
+      })
     }
+
     return nodes
   }
 

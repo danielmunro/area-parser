@@ -35,11 +35,11 @@ export default function getRoomSchema() {
       new DiscreetValue("locks"),
       new DiscreetValue("key"),
       new DiscreetValue("vnum"),
-    ]).identifiedBy("D"),
+    ]).identifiedBy("D").groupResults(),
     new SubsectionToken("extra", [
       new DiscreetValue("extra"),
-      new SingleContentToken("title"),
-      new SingleContentToken("description"),
+      new SingleContentToken("extraTitle"),
+      new SingleContentToken("extraDescription"),
     ]).identifiedBy("E"),
     new SubsectionToken("observation", [
       new DiscreetValue("target"),

@@ -5,7 +5,23 @@ import Section from "./section"
 export default class Document {
   private static mapToResult(elements) {
     const result = {}
+    let lastElementId
+    let built = {}
+    let group
     elements.forEach(element => {
+      if (element.isGrouped()) {
+        group = element.getGroup()
+        if (!result[group]) {
+          result[group] = []
+        }
+        built[element.token.identifier] = element.parsedValue
+        if (lastElementId && lastElementId !== element.getElementId()) {
+          result[group].push(built)
+          built = {}
+        }
+        lastElementId = element.getElementId()
+        return
+      }
       const i = element.token.identifier
       if (result[i]) {
         if (typeof result[i] === "string") {
@@ -16,6 +32,9 @@ export default class Document {
       }
       result[i] = element.parsedValue
     })
+    if (built && group) {
+      result[group].push(built)
+    }
 
     return result
   }

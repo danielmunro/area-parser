@@ -2,6 +2,7 @@ import Token from "./token"
 
 export default class SubsectionToken implements Token {
   private startDelimiter: string = ""
+  private groupTokens: boolean = false
 
   constructor(
     public readonly identifier: string,
@@ -28,5 +29,15 @@ export default class SubsectionToken implements Token {
     this.startDelimiter = startDelimiter
 
     return this
+  }
+
+  public groupResults(): SubsectionToken {
+    this.groupTokens = true
+
+    return this
+  }
+
+  public isGrouped(): boolean {
+    return this.groupTokens
   }
 }
