@@ -14,11 +14,11 @@ export default class Document {
         if (!result[group]) {
           result[group] = []
         }
-        built[element.token.identifier] = element.parsedValue
         if (lastElementId && lastElementId !== element.getElementId()) {
           result[group].push(built)
           built = {}
         }
+        built[element.token.identifier] = element.parsedValue
         lastElementId = element.getElementId()
         return
       }
