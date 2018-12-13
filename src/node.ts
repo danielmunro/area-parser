@@ -1,5 +1,5 @@
-import Token from "./token/token"
 import SubsectionToken from "./token/subsectionToken"
+import Token from "./token/token"
 
 export default class Node {
   private subsectionToken: SubsectionToken

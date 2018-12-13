@@ -1,7 +1,7 @@
+import v4 = require("uuid/v4")
 import Node from "./node"
 import SubsectionToken from "./token/subsectionToken"
 import Token from "./token/token"
-import v4 = require("uuid/v4")
 
 export default class Section {
   private static readonly endCursor = [" ", "\n", "\t"]
